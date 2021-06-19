@@ -1,0 +1,2489 @@
+Python Basics & Scripting
+Duration: 15 Days
+
+1. Introduction--------------completed
+2. Python Data Structures----completed
+3. Methods and Functions ----completed
+6. Names space and Scope in Python-----------completed		
+5. Decorators and Generators ----------------completed
+4. Object Oriented Programming 
+		 Introduction
+		 Object Oriented Programming Introduction
+		 Object Attributes and Methods
+		 Inheritance and Polymorphism	
+		 Coding Exercise
+		
+15th June 2021 
+----------------------------------------------------------------------------
+if __name__ == 'main'
+
+In many python programs we might have seen such condition
+ right
+so we will see what is this condition
+
+def mult(a, b):
+    return a*b
+
+
+if __name__ == '__main__':
+    print(mult(2, 3))
+	
+	
+
+print(__name__)
+this is the built in variable and it returns name of the  
+module.
+
+so if we want to know which module you are working then 
+we can use this variable name and we can find out.
+
+print(__name__)
+
+__main__ is the module which execute the top level code
+
+so this name variable will set to main when we execute 
+our program as the main program
+
+eg 
+first.py
+
+def mult(a, b):
+    return a*b
+
+
+print(mult(2, 3))
+print(__name__)
+
+
+second.py
+
+import first
+
+print(first.mult(1.1, 2.3))
+print(__name__)
+
+
+so here when i import this first python file
+it will execute that file first and 
+
+as first module is being imported so it returns 
+__name__ as module name that is first
+
+if a python file is imported by some other file 
+then the name will be assigned as name of the 
+module name.
+
+so here we got the output of first.py file also
+but here we dont want that,  we dont want the 
+output of the imported file.
+only want this output
+
+so to get that in first.py file
+what i will do is
+
+def mult(a, b):
+    return a*b
+
+
+if __name__ == '__main__':
+    print(mult(2, 3))
+    print(__name__)
+	
+	
+when this file is run as main program 
+then only i want to print the output. 
+when this file is imported that time 
+i dont want to print this result.
+so  we are using if __name__ == '__main__': 
+--------------------------------------------------------------------------
+OOPS
+What is Class:
+ 
+In Python every thing is an object.
+To create objects we required some Model 
+or Plan or Blue print, which is nothing but class.
+
+We can write a class to represent properties 
+(attributes) and actions (behaviour) of object.
+
+Properties can be represented by variables
+ Actions can be represented by Methods.
+ 
+class contains both variables and methods.
+
+Defining a class:
+
+Syntax:
+class className:
+	""" documentation string """
+	variables  (instance ,static and local variables) 
+	methods   (instance ,static and class methods)
+
+Documentation string represents description of the class.
+Within the class doc string is always optional.
+We can get doc string by using the following 2 ways.
+	1. print(classname.__doc__)
+	2. help(classname)
+
+	
+class Student:
+    """ This is student class with required data """
+
+
+print(Student.__doc__)
+help(Student)
+
+Within the Python class
+we can represent data by using variables. 
+There are 3 types of variables are allowed.
+1.Instance Variables (Object Level Variables)
+2.Static Variables (Class Level Variables)
+3.Local variables (Method Level Variables)
+
+Within the Python class,
+we can represent operations by using methods.
+The following are various types of allowed methods
+1.Instance Methods
+2.Class Methods
+3.Static Methods
+
+Example for class:
+
+class Student:
+    """ This is student class with required data """
+    def __init__(self):
+        self.name = 'anu'
+        self.age = 25
+        self.marks = 80
+
+    def intro(self):
+        print("Hello I am:", self.name)
+        print("My Age is ", self.age)
+        print("My marks are  ", self.marks)
+--------------------------------------------------
+
+What is Object:
+Physical existence of a class is nothing but object.
+ We can create any number of objects for a class.
+Syntax to create object: 
+  referencevariable = classname()
+Example: 
+   s = Student()
+
+-------------------------------------------
+What is Reference Variable:
+The variable which can be used to refer object
+ is called reference variable. 
+ 
+By using reference variable, 
+we can access properties and methods of object.
+
+Program: 
+Write a Python program to create a Student class 
+and Creates an object to it.
+Call the method intro() to display student details
+
+class Student:
+    """ This is student class with required data """
+    def __init__(self, name, rollno, marks):
+        self.name = name
+        self.rollno = rollno
+        self.marks = marks
+
+    def intro(self):
+        print("Hello I am", self.name)
+        print("My Rollno is ", self.rollno)
+        print("My marks are  ", self.marks)
+
+
+s1 = Student("Anu", 111, 80)
+s1.intro()
+
+------------------------------------------------
+Self variable:
+self is the default variable which is 
+always pointing to current object 
+(like this keyword in Java)
+
+By using self we can access
+ instance variables and instance methods of object
+ 
+Note:
+self should be first parameter 
+1) inside constructor
+   def __init__(self):
+2) inside instance methods
+	def intro(self)
+
+---------------------------------------------
+Constructor Concept:
+Constructor is a special method in python.
+The name of the constructor should be __init__(self)
+Constructor will be executed automatically 
+         at the time of object creation.
+The main purpose of constructor is 
+	to declare and initialize instance variables.
+Per object constructor will be exeucted only once.
+
+Constructor can take atleast one argument(atleast self)
+Constructor is optional and if we are not providing
+ any constructor then python will provide default constructor.
+
+Eg:
+	def __init__(self, name, rollno, marks):
+        self.name = name
+        self.rollno = rollno
+        self.marks = marks
+
+Program to demonistrate constructor will 
+execute only once per object:
+
+class Demo:
+    """ Constructor execution """
+    def __init__(self):
+        print("constructor execution")
+
+    def m1(self):
+        print("Method execution")
+
+
+t1 = Demo()
+t2 = Demo()
+t3 = Demo()
+t1.m1()
+
+
+class Student:
+    """ This is student class with required data """
+    def __init__(self, x, y, z):
+        self.name = x
+        self.rollno = y
+        self.marks = z
+
+    def display(self):
+        print("Student Name:{}\nRollno:{}\nMarks:{}".format(self.name,self.rollno,self.marks))
+
+
+s1 = Student("Anu", 111, 80)
+s1.display()
+s2 = Student("Rakesh", 101, 100)
+s2.display()
+
+
+Differences between Methods and Constructors:
+
+1. Name of method can be any name	
+   Constructor name should be always __init__ 	
+2. Method will be executed if we call that method
+   Constructor will be executed automatically at
+    the time of object creation.
+3. Per object, method can be called any number
+  of times.	
+  Per object, Constructor will be executed only
+   once
+4. Inside method we can write business logic	
+ Inside Constructor we have to declare and
+  initialize instance variables
+--------------------------------------------------------
+
+
+Types of Variables:
+
+Inside Python class 3 types of variables are allowed.
+
+1.Instance Variables (Object Level Variables)
+2.Static Variables (Class Level Variables)
+3.Local variables (Method Level Variables)
+
+1. Instance Variables:
+
+ex for student class , we can create any no of student objects
+for every student 
+ for every student name is varied from student to student
+ similarly rollno....
+
+If the value of a variable is varied from object to object, 
+then such type of variables are called instance variables.
+
+For every object a separate copy of instance variables 
+will be created.
+
+Where we can declare Instance variables:
+	1.Inside Constructor by using self variable
+	2.Inside Instance Method by using self variable
+	3.Outside of the class by using object reference variable
+
+
+1.Inside Constructor by using self variable:
+
+We can declare instance variables 
+inside a constructor by using self keyword.
+
+Once we creates object, automatically 
+these variables will be added to the object.
+
+
+class Employee:
+    """ This is student class with required data """
+    def __init__(self):
+        self.eno = 100
+        self.ename = "Anu"
+        self.esal = 50000
+
+
+e = Employee()
+print(e.__dict__)
+
+objectreference.__dict__  provides object
+related complete details in the form of dictionary.
+
+classname.__dict__  provides class
+related complete details in the form of dictionary.
+
+
+2.Inside Instance Method by using self variable:
+We can also declare instance variables 
+ inside instance method by using self variable. 
+If any instance variable declared inside instance method,
+that instance variable will be added once we call that method.
+
+class Test:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+
+    def m1(self):
+        self.c = 30
+
+
+t = Test()
+print(t.__dict__)
+t.m1()
+print(t.__dict__)
+
+3.Outside of the class by using object reference variable:
+We can also add instance variables outside of a class 
+to a particular object.(not aplicable for other objects)
+
+class Test:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+
+    def m1(self):
+        self.c = 30
+
+
+t = Test()
+print(t.__dict__)
+t.m1()
+print(t.__dict__)
+t.d = 40
+print(t.__dict__)
+
+
+How to access Instance variables:
+We can access instance variables
+ with in the class by using self variable and
+ outside of the class by using object reference.
+ 
+ class Test:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+
+    def m1(self):
+        print(self.a)
+        print(self.b)
+
+
+t = Test()
+print(t.a, t.b)
+t.m1()
+
+-----------------------------------------------------
+class Student:
+    """ This is student class with required data """
+    def __init__(self, name, rollno, marks):
+        self.name = name
+        self.rollno = rollno
+        self.marks = marks
+
+    def display(self):
+        print("Student name:", self.name)
+        print("Student Rollno:", self.rollno)
+        print("Student marks:", self.marks)
+
+
+s1 = Student("Anu", 111, 80)
+s2 = Student("Rakesh", 112, 90)
+s3 = Student("Srinivas", 113, 100)
+s1.display()
+s2.display()
+s3.display()
+
+print(s1.name, s1.rollno, s1.marks)
+print(s1.__dict__)
+
+--------------------------------------------------
+How to delete instance variable from the object:
+for deleting instance variable 
+1.Within a class 
+	 del self.variableName
+2.From outside of class 
+     del objectreference.variableName
+	 
+	 
+class Test:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+        self.c = 20
+        self.d = 20
+
+    def m1(self):
+        del self.d
+
+
+t = Test()
+print(t.__dict__)
+t.m1()
+print(t.__dict__)
+del t.c
+print(t.__dict__)
+
+
+The instance variables which are deleted from one object,
+will not be deleted from other objects.
+
+class Test:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+        self.c = 20
+        self.d = 20
+
+
+t1 = Test()
+t2 = Test()
+del t1.a
+print(t1.__dict__)
+print(t2.__dict__)
+
+If we change the values of instance variables of one object
+ then those changes won't be reflected to the 
+ remaining objects,since for every object 
+ separate copy of instance variables are available.
+ 
+class Test:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+
+
+t1 = Test()
+t1.a = 888
+t1.b = 999
+t2 = Test()
+print("t1 :", t1.__dict__)
+print("t2 :", t2.__dict__) 
+
+=============================================================
+2. Static variables:(class level)
+
+If the value of a variable is not varied from object to object,
+ such type of variables we have to declare 
+ with in the class directly but outside of methods. 
+ Such type of variables are called Static variables.
+ 
+For total class only one copy of static variable
+ will be created and shared by all objects of that class.
+
+We can access static variables either by class name 
+or by object reference. But recommended to use class name.
+
+
+Instance Variable vs Static Variable:
+ In the case of instance variables for every object 
+ a seperate copy will be created,but in the case of 
+ static variables for total class only one copy will
+ be created and shared by every object of that class.
+ 
+
+class Test:
+    x = 10
+
+    def __init__(self):
+        self.y = 20
+
+
+t1 = Test()
+t2 = Test()
+print("t1 :", t1.x, t1.y)
+print("t2 :", t2.x, t2.y)
+Test.x = 888
+t1.y = 999
+print("t1 :", t1.x, t1.y)
+print("t2 :", t2.x, t2.y)
+
+Various places to declare static variables:
+1.In general we can declare within the class directly 
+   but from out side of any method
+2.Inside constructor by using class name 
+   but this will create when 
+   we create an object as constructor should execute.
+3.Inside instance method by using class name
+ but this will create when
+ when instance method is called
+4.Inside classmethod by using 
+  either class name or cls variable
+5.Inside static method by using class name
+6.Outside of class by using class name.
+
+
+class Test:
+    a = 10
+
+    def __init__(self):
+        Test.b = 20
+
+    def m1(self):
+        Test.c = 30
+
+    @classmethod  
+    def m2(cls):
+        cls.d1 = 40
+        Test.d2 = 400
+
+    @staticmethod
+    def m3():
+        Test.e = 50
+
+
+# print(Test.__dict__)
+t = Test()
+# print(Test.__dict__)
+t.m1()
+# print(Test.__dict__)
+Test.m2()
+# print(Test.__dict__)
+Test.m3()
+# print(Test.__dict__)
+Test.f = 60
+# print(Test.__dict__)
+
+
+How to access static variables:
+
+1.inside constructor: 
+  by using either self or classname
+2.inside instance method:
+  by using either self or classname
+3.inside class method: 
+  by using either cls variable or classname
+4.inside static method: 
+  by using classname
+5.From outside of class: 
+  by using either object reference or classname
+  
+  
+
+class Test:
+    a = 10
+
+    def __init__(self):
+        print(self.a)
+        print(Test.a)
+
+    def m1(self):
+        print(self.a)
+        print(Test.a)
+
+    @classmethod
+    def m2(cls):
+        print(cls.a)
+        print(Test.a)
+
+    @staticmethod
+    def m3():
+        print(Test.a)
+
+
+t = Test()
+print(Test.a)
+print(t.a)
+t.m1()
+t.m2()
+t.m3()
+
+--------------------------------------
+Where we can modify the value of static variable:
+Anywhere either with in the class or outside of class
+ we can modify by using classname. 
+But inside class method, by using cls variable.
+ 
+  
+ class Test:
+    a = 777
+
+    @classmethod
+    def m1(cls):
+        cls.a = 888
+
+    @staticmethod
+    def m2():
+        Test.a = 999
+
+
+print(Test.a)
+Test.m1()
+print(Test.a)
+Test.m2()
+print(Test.a) 
+
+-------------------------------------------------------
+ If we change the value of static variable  
+ by using either self or object reference variable:
+ then the value of static variable won't be changed,
+  just a new instance variable with that name 
+  will be added to that particular object.
+  
+ Eg1
+ 
+ class Test:
+    a = 10
+
+    def m1(self):
+        self.a = 888
+
+
+t1 = Test()
+t1.m1()
+print(Test.a)
+print(t1.a) 
+
+-----------------
+ Example: 
+  
+ class Test:
+    x = 10
+
+    def __init__(self):
+        self.y = 20
+
+
+t1 = Test()
+t2 = Test()
+print('t1:', t1.x, t1.y)
+print('t2:', t2.x, t2.y)
+t1.x = 888
+t1.y = 999
+print('t1:', t1.x, t1.y)
+print('t2:', t2.x, t2.y)
+
+---------------------------
+
+class Test:
+    a = 10
+
+    def __init__(self):
+        self.b = 20
+
+
+t1 = Test()
+t2 = Test()
+Test.a = 888
+t1.b = 999
+print('t1:', t1.a, t1.b)
+print('t2:', t2.a, t2.b)
+
+----------------------------
+class Test:
+    a = 10
+
+    def __init__(self):
+        self.b = 20
+
+    def m1(self):
+        self.a = 888
+        self.b = 999
+
+
+t1 = Test()
+t2 = Test()
+t1.m1()
+print('t1:', t1.a, t1.b)
+print('t2:', t2.a, t2.b)
+-------------------------------
+
+class Test:
+    a = 10
+
+    def __init__(self):
+        self.b = 20
+
+    @classmethod
+    def m1(cls):
+        cls.a = 888
+        cls.b = 999
+
+
+t1 = Test()
+t2 = Test()
+t1.m1()
+print('t1:', t1.a, t1.b)
+print('t2:', t2.a, t2.b)
+print(Test.a, Test.b)
+----------------------------- 
+ 
+How to delete static variables of a class:
+We can delete static variables 
+from anywhere by using the following syntax
+	
+	del classname.variablename
+
+But inside classmethod we can also use cls variable
+
+	del cls.variablename
+
+class Test:
+    a = 10
+
+    @classmethod
+    def m1(cls):
+        del cls.a
+
+
+Test.m1()
+print(Test.__dict__)
+
+--------------------------
+
+class Test:
+    a = 10
+
+    def __init__(self):
+        Test.b = 20
+        del Test.a
+
+    def m1(self):
+        Test.c = 30
+        del Test.b
+
+    @classmethod
+    def m2(cls):
+        cls.d = 40
+        del Test.c
+
+    @staticmethod
+    def m3():
+        Test.e = 50
+        del Test.d
+
+
+print(Test.__dict__)
+t = Test()
+print(Test.__dict__)
+t.m1()
+print(Test.__dict__)
+Test.m2()
+print(Test.__dict__)
+Test.m3()
+print(Test.__dict__)
+Test.f = 60
+print(Test.__dict__)
+del Test.e
+print(Test.__dict__)
+
+------------------------------------
+Note: 
+By using object reference variable/self 
+we can read static variables, 
+but we cannot modify or delete.
+
+If we are trying to modify, 
+then a new instance variable will be added 
+to that particular object. t1.a = 70
+
+If we are trying to delete then we will get error.
+
+
+class Test:
+    a = 10
+
+
+t = Test()
+del t.a
+
+We can modify or delete static variables 
+only by using classname or cls variable.
+
+-----------------------------------------------------
+import sys
+
+
+class Customer:
+    """ Customer class with bank operations.."""
+    bankname = 'APGP BANK'
+
+    def __init__(self, name, balance=0.0):
+			self.name = name
+			self.balance = balance
+
+    def deposit(self, amt):
+        self.balance = self.balance + amt
+        print('Balance after deposit:', self.balance)
+
+    def withdraw(self, amt):
+        if amt > self.balance:
+            print('Insufficient Funds..cannot perform this operation')
+            sys.exit()
+        self.balance = self.balance - amt
+        print('Balance after withdraw:',self.balance)
+
+
+print('Welcome to', Customer.bankname)
+name = input('Enter Your Name:')
+c = Customer(name)
+while True:
+    print('d-Deposit \nw-Withdraw \ne-exit')
+    option = input('Choose your option:')
+    if option == 'd' or option == 'D':
+        amt = float(input('Enter amount:'))
+        c.deposit(amt)
+    elif option == 'w' or option == 'W':
+        amt = float(input('Enter amount:'))
+        c.withdraw(amt)
+    elif option == 'e' or option == 'E':
+        print('Thanks for Banking')
+        sys.exit()
+    else:
+        print('Invalid option..Plz choose valid option')
+		
+--------------------------------------------------------------------
+ Local variables:
+ Sometimes to meet temporary requirements of programmer,
+ we can declare variables inside a method directly,
+ such type of variables are called 
+ local variable or temporary variables.
+ 
+ Local variables will be created at the time of 
+ method execution and destroyed once method completes.
+ 
+ Local variables of a method cannot 
+ be accessed from outside of method
+ 
+ class Test:
+    def m1(self):
+        a = 1000
+        print(a)
+
+    def m2(self):
+        b = 2000
+        print(b)
+
+
+t = Test()
+t.m1()
+t.m2()
+------------------------------
+class Test:
+    def m1(self):
+        a = 1000
+        print(a)
+
+    def m2(self):
+        b = 2000
+        print(a)
+        print(b)
+
+
+t = Test()
+t.m1()
+t.m2()
+------------------------------
+
+Types of Methods:
+
+Inside Python class 3 types of methods are allowed
+
+1.Instance Methods
+2.Class Methods
+3.Static Methods
+
+1.Instance Methods:
+Inside method implementation 
+if we are using instance variables 
+then such type of methods are called instance methods.
+Inside instance method declaration,
+we have to pass self variable.
+
+By using self variable inside method 
+we can able to access instance variables
+
+Within the class we can call instance 
+method by using self variable
+ and from outside of the class 
+ we can call by using object reference.
+ 
+ 
+ 
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def display(self):
+        print('Hi', self.name)
+        print('Your Marks are:', self.marks)
+
+    def grade(self):
+        if self.marks >= 60:
+            print('You got First Grade')
+        elif self.marks >= 50:
+            print('You got Second Grade')
+        elif self.marks >= 35:
+            print('You got Third Grade')
+        else:
+            print('You are Failed')
+
+
+n=int(input('Enter number of students:'))
+for i in range(n):
+    name = input('Enter Name:')
+    marks = int(input('Enter Marks:'))
+    s = Student(name, marks)
+    s.display()
+    s.grade()
+    print()
+	
+-------------------------------------------
+Setter and Getter Methods:(applicable to obj ie instance)
+We can set and get the values of instance variables
+ by using getter and setter methods.
+
+
+Setter Method:
+setter methods can be used to set values 
+to the instance variables. 
+setter methods also known as mutator methods.
+
+syntax:
+def setVariable(self,variable): self.variable=variable
+
+Example:
+def setName(self,name): self.name=name
+
+Getter Method:
+Getter methods can be used to get values 
+of the instance variables. 
+Getter methods also known as accessor methods.
+
+syntax:
+def getVariable(self): return self.variable
+
+Example:
+def getName(self): return self.name
+
+
+At the time of creating object if we dont
+how many instance variables are there
+and what are the values
+then automatically we use setter and getter
+methods
+
+In real time, for security reasons,
+none is allowed to variables directly
+by using setter and getter methods 
+we have to use
+for data hiding and encapsulation. 
+
+
+class Student:
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name
+
+    def setMarks(self, marks):
+        self.marks = marks
+
+    def getMarks(self):
+        return self.marks
+
+
+n = int(input('Enter number of students:'))
+for i in range(n):
+    s = Student()
+    name = input('Enter Name:')
+    s.setName(name)
+    marks = int(input('Enter Marks:'))
+    s.setMarks(marks)
+
+    print('Hi', s.getName())
+    print('Your Marks are:', s.getMarks())
+    print()
+	
+--------------------------------------------------
+
+2.Class Methods:
+
+Inside method implementation if we are using 
+only class variables (static variables), then
+such type of methods 
+we should declare as class method.
+
+We can declare class method explicitly 
+by using @classmethod decorator. 
+For class method we should 
+provide cls variable at the time of declaration
+
+We can call classmethod by using 
+classname or object reference variable.
+
+
+class Animal:
+    legs = 4
+
+    @classmethod
+    def walk(cls, name):
+        print('{} walks with {} legs...'.format(name, cls.legs))
+
+
+Animal.walk('Dog')
+Animal.walk('Cat')
+
+----------------------
+Program to track the number of objects created for a class:
+
+class Test:
+    count = 0
+
+    def __init__(self):
+        Test.count = Test.count + 1
+
+    @classmethod
+    def noOfObjects(cls):
+        print('No. of obj created for test class:', cls.count)
+
+
+t1 = Test()
+t2 = Test()
+Test.noOfObjects()
+t3 = Test()
+t4 = Test()
+t5 = Test()
+Test.noOfObjects()
+
+-----------------------------------------------------
+3.Static Methods:
+In general these methods are general utility methods.
+Inside these methods 
+we won't use any instance or class variables.
+ Here we won't provide 
+ self or cls arguments at the time of declaration.
+
+We can declare static method explicitly 
+by using @staticmethod decorator
+We can access static methods 
+by using classname or object reference
+
+
+	class Math:
+
+    @staticmethod
+    def add(x, y):
+        print('The Sum:', x + y)
+
+    @staticmethod
+    def product(x, y):
+        print('The Product:', x * y)
+
+    @staticmethod
+    def average(x, y):
+        print('The average:', (x + y) / 2)
+
+
+Math.add(10, 20)
+Math.product(10, 20)
+Math.average(10, 20)
+
+In general we can use 
+only instance and static methods.
+
+Inside static method we can access 
+class level variables by using class name.
+
+class methods are most rarely used methods in python.
+
+------------------------------------------------------------------------------
+Passing members of one class to another class:
+
+We can access members of one class inside another class.
+
+
+class Employee:
+    def __init__(self, eno, ename, esal):
+        self.eno = eno
+        self.ename = ename
+        self.esal = esal
+
+    def display(self):
+        print('Employee Number:', self.eno)
+        print('Employee Name:', self.ename)
+        print('Employee Salary:', self.esal)
+
+
+class Test:
+    def modify(emp):
+        emp.esal = emp.esal + 10000
+        emp.display()
+
+
+e = Employee(100, 'Anu', 10000)
+Test.modify(e)
+
+In the above application, Employee class members 
+are available to Test class.
+
+------------------------------------------------------------------------------
+
+Inner class/Nested class:
+
+Sometimes we can declare a class inside another class,
+such type of classes are called inner classes.
+
+Without existing one type of object 
+if there is no chance of existing another type
+ of object,then we should go for inner classes.
+ 
+Without existing Car object there is no chance
+ of existing Engine object. 
+ Hence Engine class should be part of Car class.
+
+class Car:
+.....
+class Engine:
+......
+
+Example: Without existing university object 
+there is no chance of existing Department object 
+
+class University:
+.....
+class Department:
+......
+
+
+Note: Without existing outer class object
+there is no chance of existing inner class object
+Hence inner class object is always 
+associated with outer class object. 
+
+
+class Outer:
+    def __init__(self):
+        print("outer class object creation")
+
+    class Inner:
+        def __init__(self):
+            print("Inner class object creation")
+
+        def m1(self):
+            print("inner class method")
+
+
+o = Outer()
+i = o.Inner()
+i.m1()
+
+The following are various possible syntaxes 
+for calling inner class method 
+
+1.
+o=Outer()
+i=o.Inner() 
+i.m1()
+
+2.
+i=Outer().Inner()
+i.m1()
+		
+3.
+Outer().Inner().m1() 
+
+------------------------------------------------
+
+class Person:
+    def __init__(self):
+        self.name = 'anu'
+        self.db = self.Dob()
+
+    def display(self):
+        print('Name:', self.name)
+
+    class Dob:
+        def __init__(self):
+            self.dd = 10
+            self.mm = 5
+            self.yy = 1947
+
+        def display(self):
+            print('Dob={}/{}/{}'.format(self.dd, self.mm, self.yy))
+
+
+p = Person()
+p.display()
+x = p.db
+x.display()
+
+-----------------------------------------------------
+Inside a class we can declare any number of inner classes.
+--------------------------------------------------------
+
+Python Basics & Scripting
+Duration: 15 Days
+
+1. Introduction--------------completed
+2. Python Data Structures----completed
+3. Methods and Functions ----completed
+6. Names space and Scope in Python-----------completed		
+5. Decorators and Generators ----------------completed
+4. Object Oriented Programming 
+		 Introduction    -------------------completed
+		 Object Oriented Programming Introduction---- completed
+		 Object Attributes and Methods -------------completed
+		 Inheritance and Polymorphism	
+		 Coding Exercise
+		
+16th June 2021
+
+
+Garbage Collection:
+In old languages like C++, programmer is responsible
+ for both creation and destruction of objects.
+ 
+Usually programmer taking very much care
+ while creating object, but neglecting 
+ destruction of useless objects.
+ 
+ Because of this , 
+ total memory can be filled with useless objects
+ which creates memory problems and total 
+ application will be down with Out of memory error.
+ 
+ But in Python,
+ We have some assistant which is always running 
+ in the background to destroy useless objects.
+ 
+ Because this assistant the chance of failing 
+ Python program with memory problems is very less. 
+ 
+ This assistant is nothing but Garbage Collector.
+ 
+ Hence the main objective of Garbage Collector
+ is to destroy useless objects
+ 
+ If an object does not have any reference variable
+ then that object eligible for Garbage Collection
+
+How to enable and disable Garbage Collector
+ in our program
+ 
+By default Gargbage collector is enabled,
+ but we can disable based on our requirement.
+ 
+we can use the following functions of gc module.
+1.gc.isenabled()
+Returns True if GC enabled
+
+2.gc.disable()
+To disable GC explicitly
+
+3.gc.enable()
+To enable GC explicitly
+
+import gc
+print(gc.isenabled())
+gc.disable()
+print(gc.isenabled())
+gc.enable()
+print(gc.isenabled())
+
+
+------------------------------------------
+Destructors:
+
+Destructor is a special method and
+ the name should be __del__
+ 
+Just before destroying an object Garbage Collector 
+ always calls destructor to perform clean up activities
+ (Resource deallocation activities 
+ like close database connection etc).
+ 
+Once destructor execution completed then
+ Garbage Collector automatically destroys that object
+ 
+The job of destructor is not to destroy object
+ and it is just to perform clean up activities.
+
+import time
+
+class Test:
+    def __init__(self):
+        print("Object Initialization...")
+
+    def __del__(self):
+        print("performing clean up activities...")
+
+
+t1 = Test()
+t1 = None
+time.sleep(5)
+print("End of application")
+
+
+-------------------------------------------
+If the object does not contain any reference variable
+ then only it is eligible fo GC. 
+ ie if the reference count is zero 
+ then only object eligible for GC
+
+import time
+
+class Test:
+    def __init__(self):
+        print("constructor execution")
+
+    def __del__(self):
+        print("Destructer execution")
+
+
+t1 = Test()
+t2 = t1
+t3 = t2
+del(t1)
+time.sleep(5)
+print("object not yet destroyed after deleting t1")
+del t2
+print("object not yet destroyed even after deleting t2")
+print("I am trying to delete last reference variable...")
+del t3
+------------------------------------
+
+import time
+class Test:
+    def __init__(self):
+        print("Constructor Execution...")
+
+    def __del__(self):
+        print("Destructor Execution...")
+
+
+list = [Test(), Test(), Test()]
+del list
+time.sleep(5)
+print("End of application")
+
+------------------------------------
+How to find the number of references of an object:
+
+sys module contains getrefcount() 
+function for this purpose.
+
+sys.getrefcount(objectreference)
+
+import sys
+
+
+class Test:
+    pass
+
+
+t1 = Test()
+t2 = t1
+t3 = t1
+t4 = t1
+print(sys.getrefcount(t1))
+
+
+
+For every object, 
+Python internally maintains one 
+default reference variable self.
+
+------------------------------------------------------------------------------
+Inheritance
+
+Using members of one class inside another class:
+We can use members of one class inside
+another class by using the following ways
+
+
+1.By Composition (Has-A Relationship)
+2.By Inheritance (IS-A Relationship)
+
+
+1.By Composition (Has-A Relationship):
+By using Class Name or by creating object
+we can access members of one class inside another
+class is nothing but composition (Has-A Relationship)
+
+advantage of Has-A Relationship is Code Reusability.
+
+
+class Engine:
+    a = 10
+
+    def __init__(self):
+        self.b = 20
+
+    def m1(self):
+        print('Engine Specific Functionality')
+
+
+class Car:
+    def __init__(self):
+        self.engine = Engine()
+
+    def m2(self):
+        print('Car using Engine Class Functionality')
+        print(self.engine.a)
+        print(self.engine.b)
+        self.engine.m1()
+
+
+c = Car()
+c.m2()
+
+------------------------------
+class Car:
+
+    def __init__(self, name, model, color):
+        self.name = name
+        self.model = model
+        self.color = color
+
+    def getinfo(self):
+        print("Car Name:{} , Model:{} and Color:{}".format(self.name, self.model, self.color))
+
+
+class Employee:
+    def __init__(self, ename, eno, car):
+        self.ename = ename
+        self.eno = eno
+        self.car = car
+
+    def empinfo(self):
+        print("Employee Name:", self.ename)
+        print("Employee Number:", self.eno)
+        print("Employee Car Info:")
+        self.car.getinfo()
+
+
+c = Car("Innova", "2.5V", "Grey")
+e = Employee('Anu', 10000, c)
+e.empinfo()
+
+
+
+In the above program Employee 
+class Has-A Car reference
+ and hence Employee class can 
+ access all members of Car class.
+----------------------------------------------------
+class X:
+    a = 10
+
+    def __init__(self):
+        self.b = 20
+
+    def m1(self):
+        print("m1 method of X class")
+
+
+class Y:
+    c = 30
+
+    def __init__(self):
+        self.d = 40
+
+    def m2(self):
+        print("m2 method of Y class")
+
+    def m3(self):
+        x1 = X()
+        print(x1.a)
+        print(x1.b)
+        x1.m1()
+        print(Y.c)
+        print(self.d)
+        self.m2()
+        print("m3 method of Y class")
+
+
+y1 = Y()
+y1.m3()
+-----------------------------------
+2.By Inheritance(IS-A Relationship):
+
+What ever variables, methods and constructors 
+available in the parent class by default available
+to the child classes and we are not required 
+to rewrite.
+Hence the main advantage of inheritance
+is Code Reusability and we can extend existing 
+functionality with some more extra functionality.
+
+Syntax :
+class childclass(parentclass):
+
+
+
+Demo Program for inheritance:
+
+class P:
+    a = 10
+
+    def __init__(self):
+        self.b = 10
+
+    def m1(self):
+        print('Parent instance method')
+
+    @classmethod
+    def m2(cls):
+        print('Parent class method')
+
+    @staticmethod
+    def m3():
+        print('Parent static method')
+
+
+class C(P):
+    pass
+
+
+c = C()
+print(c.a)
+print(c.b)
+c.m1()
+c.m2()
+c.m3()
+----------------
+1) class P:
+2)	10 methods
+3) class C(P):
+4)	5 methods
+
+In the above example Parent class contains 
+10 methods and these methods automatically 
+available to the child class and
+ we are not required to rewrite those methods
+ (Code Reusability) 
+ Hence child class contains 15 methods.
+
+What ever members present in Parent class
+ are by default available to the child class 
+ through inheritance.
+
+class P:
+    def m1(self):
+        print("Parent class method")
+
+
+class C(P):
+    def m2(self):
+        print("Child class method")
+
+
+c = C()
+c.m1()
+c.m2()
+
+What ever methods present in Parent class are
+ automatically available to the child class 
+and hence on the child class reference 
+we can call both 
+parent class methods and child class methods.
+
+Similarly variables also
+
+
+	class P:
+		a = 10
+
+    def __init__(self):
+       self.b = 20
+
+
+class C(P):
+    c = 30
+
+    def __init__(self):
+        # super().__init__()
+        self.d = 30
+
+
+c1 = C()
+print(c1.a, c1.b, c1.c, c1.d)
+
+
+If we comment Line-1 then variable b is
+ not available to the child class.
+--------------------------------------------
+
+IS-A vs HAS-A Relationship:
+
+If we want to extend existing functionality 
+with some more extra functionality 
+then we should go for IS-A Relationship
+
+If we dont want to extend and just 
+we have to use existing functionality 
+then we should go for HAS-A Relationship
+
+Types of Inheritance:
+
+1.Single Inheritance:
+The concept of inheriting the properties 
+from one class to another class is known as 
+single inheritance.
+
+class P:
+    def m1(self):
+        print("Parent Method")
+
+
+class C(P):
+    def m2(self):
+        print("Child Method")
+
+
+c = C()
+c.m1()
+c.m2()
+
+2.Multi Level Inheritance:
+
+The concept of inheriting the properties from 
+multiple classes to single class 
+with the concept of one after another
+ is known as multilevel inheritance
+ 
+class P:
+    def m1(self):
+        print("Parent Method")
+
+
+class C(P):
+    def m2(self):
+        print("Child Method")
+
+
+class CC(C):
+    def m3(self):
+        print("Sub Child Method")
+        
+
+c = CC()
+c.m1()
+c.m2()
+
+3.Hierarchical Inheritance:
+The concept of inheriting properties
+from one class into multiple classes  
+which are present at same level
+ is known as Hierarchical Inheritance
+ 
+class P:
+    def m1(self):
+        print("Parent Method")
+
+
+class C1(P):
+    def m2(self):
+        print("Child1 Method")
+
+
+class C2(P):
+    def m3(self):
+        print("Child2 Method")
+
+
+c1 = C1()
+c1.m1()
+c1.m2()
+c2 = C2()
+c2.m1()
+c2.m3()
+
+4.Multiple Inheritance:
+The concept of inheriting the properties 
+from multiple classes into a single class 
+at a time, is known as multiple inheritance.
+
+class P1:
+    def m1(self):
+        print("Parent1 Method")
+
+
+class P2:
+    def m2(self):
+        print("Parent2 Method")
+
+
+class C(P1, P2):
+    def m3(self):
+        print("Child Method")
+
+
+c = C()
+c.m1()
+c.m2()
+c.m3()
+
+If the same method is inherited
+ from both parent classes,
+then Python will always consider 
+the order of Parent classes in the
+ declaration of the child class.
+ 
+ C(P1,P2): =>P1 method will be considered 
+ C(P2,P1): =>P2 method will be considered
+ 
+ 
+class P1:
+    def m1(self):
+        print("Parent1 Method")
+
+
+class P2:
+    def m1(self):
+        print("Parent2 Method")
+
+
+class C(P1, P2):
+    def m2(self):
+        print("Child Method")
+
+
+c = C()
+c.m1()
+c.m2()
+
+5.Hybrid Inheritance:
+
+Combination of Single, Multi level,
+ multiple and Hierarchical inheritance 
+ is known as Hybrid Inheritance.
+ 
+6.Cyclic Inheritance:
+The concept of inheriting properties
+from one class to another class in cyclic way,
+ is called Cyclic inheritance.
+ Python won't support for Cyclic Inheritance 
+ of course it is really not required.
+ 
+ 
+class A(A):pass
+
+NameError: name 'A' is not defined
+ 
+ 
+1) class A(B):
+2)	pass
+3) class B(A):
+4)	pass
+
+NameError: name 'B' is not defined
+
+
+Method Resolution Order (MRO):
+
+In Hybrid Inheritance the method resolution order
+ is decided based on MRO algorithm. 
+ This algorithm is also known as C3 algorithm.
+Samuele Pedroni proposed this algorithm.
+
+ It follows DLR (Depth First Left to Right)
+ 
+i.e Child will get more priority than Parent.
+Left Parent will get more priority than Right 
+Parent MRO(X)=X+Merge(MRO(P1),MRO(P2),...,ParentList)
+
+
+class A:
+    pass
+
+
+class B(A):
+    pass
+
+
+class C(A):
+    pass
+
+
+class D(B, C):
+    pass
+
+
+print(A.mro())
+print(B.mro())
+print(C.mro())
+print(D.mro())
+
+
+----------------------
+class A:
+    pass
+
+
+class B:
+    pass
+
+
+class C:
+    pass
+
+
+class X(A, B):
+    pass
+
+
+class Y(B, C):
+    pass
+
+
+class P(X, Y, C):
+    pass
+
+
+print(A.mro())#AO
+print(X.mro())#XABO
+print(Y.mro())#YBCO
+print(P.mro())#PXAYBCO
+
+--------------------------------
+
+super() Method:
+super() is a built-in method which is useful 
+to call the super class constructors,variables
+ and methods from the child class.
+ 
+Demo Program-1 for super():
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def display(self):
+        print('Name:', self.name)
+
+
+class Student(Person):
+    def __init__(self, name, age, rollno, marks):
+        super().__init__(name, age)
+        self.rollno = rollno
+        self.marks = marks
+        
+    def display(self):
+        super().display()
+        print('Roll No:', self.rollno)
+        print('Marks:', self.marks)
+
+
+s1 = Student('Anu', 22, 101, 90)
+s1.display()
+
+In the above program we are using super() method 
+to call parent class constructor and display() method
+
+-----------------------------------
+class P:
+    a = 10
+
+    def __init__(self):
+        self.b = 10
+
+    def m1(self):
+        print('Parent instance method')
+
+    @classmethod
+    def m2(cls):
+        print('Parent class method')
+
+    @staticmethod
+    def m3():
+        print('Parent static method')
+
+
+class C(P):
+    a = 888
+
+    def __init__(self):
+        self.b = 999
+        super().__init__()
+        print(super().a)
+        super().m1()
+        super().m2()
+        super().m3()
+
+
+c = C()
+
+In the above example we are using super() 
+to call various members of Parent class.
+
+
+
+How to call method of a particular Super class:
+We can use the following approaches
+1.super(D,self).m1()
+It will call m1() method of super class of D.
+
+2.A.m1(self)
+It will call A class m1() method
+
+class A:
+    def m1(self):
+        print('A class Method')
+    
+
+class B(A):
+    def m1(self):
+        print('B class Method')
+
+
+class C(B):
+    def m1(self):
+        print('C class Method')
+
+
+class D(C):
+    def m1(self):
+        print('D class Method')
+
+
+class E(D):
+    def m1(self):
+        A.m1(self)
+
+
+e = E()
+e.m1()
+
+Various Important Points about super()
+Case-1: From child class we are not allowed to 
+access parent class instance variables 
+by using super(),
+Compulsory we should use self only.
+But we can access parent class 
+static variables by using super().
+
+
+class P:
+    a = 10
+
+    def __init__(self):
+        self.b = 20
+
+
+class C(P):
+    def m1(self):
+        print(super().a)
+        # print(super().b)
+        print(self.b)
+
+
+c = C()
+c.m1()
+
+-----------
+Case-2: From child class constructor and instance method,
+ we can access parent class 
+ instance method,static method and class method 
+ by using super()
+class P:
+    def __init__(self):
+        print('Parent Constructor')
+
+    def m1(self):
+        print('Parent instance method')
+
+    @classmethod
+    def m2(cls):
+        print('Parent class method')
+
+    @staticmethod
+    def m3():
+        print("parent static method")
+
+
+class C(P):
+    def __init__(self):
+        super().__init__()
+        super().m1()
+        super().m2()
+        super().m3()
+
+
+c = C()
+c.m1()
+-------------------------------------
+From child class, class method we cannot access 
+parent class instance methods and constructors
+ by using super() directly
+ (but indirectly possible).
+But we can access parent class static and class methods.
+
+
+class P:
+    def __init__(self):
+        print('Parent Constructor')
+
+    def m1(self):
+        print('Parent instance method')
+
+    @classmethod
+    def m2(cls):
+        print('Parent class method')
+
+    @staticmethod
+    def m3():
+        print("parent static method")
+
+
+class C(P):
+    @classmethod
+    def m1(cls):
+        # super().__init__()
+        # super().m1()
+        super().m2()
+        super().m3()
+
+
+C.m1()
+
+
+-----------------
+From Class Method of Child class,
+how to call parent class 
+instance methods and constructors:
+
+class A:
+    def __init__(self):
+        print('Parent Constructor')
+
+    def m1(self):
+        print('Parent instance method')
+
+
+class B(A):
+    @classmethod
+    def m2(cls):
+        super(B, cls).__init__(cls)
+        super(B, cls).m1(cls)
+
+
+B.m2()
+
+------------
+Case-4: In child class static method 
+we are not allowed to use super() 
+generally (But in special way we can use)
+
+class P:
+    def __init__(self):
+        print('Parent Constructor')
+
+    def m1(self):
+        print('Parent instance method')
+
+    @classmethod
+    def m2(cls):
+        print('Parent class method')
+
+    @staticmethod
+    def m3():
+        print("parent static method")
+
+
+class C(P):
+    @staticmethod
+    def m1():
+        super().m1()
+        super().m2()
+        super().m2()
+
+
+C.m1()
+
+----------------
+How to call parent class static method from 
+child class static method by using super():
+
+class A:
+    @staticmethod
+    def m1():
+        print("parent static method")
+
+
+class B(A):
+    @staticmethod
+    def m2():
+        super(B, B).m1()
+
+
+B.m2()
+
+===============================================
+
+Polymorphism
+
+Poly means many. Morphs means forms
+Polymorphism means 'Many Forms'.
+example
++ operator acts as concatenation 
+and arithmetic addition
+
+ * operator acts as multiplication
+ and repetition operator
+
+The Same method with different implementations
+ in Parent class and child classes.(overriding)
+------------------------------------------
+Related to polymorphism the following  topics:
+
+1.Duck Typing Philosophy of Python
+
+2.Overloading
+	1.Operator Overloading
+	2.Method Overloading
+	3.Constructor Overloading
+
+3.Overriding
+	1.Method overriding
+	2.constructor overriding
+	
+
+1. Duck Typing Philosophy of Python:
+In Python we cannot specify the type explicitly. 
+Based on provided value at runtime 
+the type will be considered automatically.
+Hence Python is considered 
+as Dynamically Typed Programming Language.
+
+
+What is the type of obj?
+We cannot decide at the beginning.
+At runtime we can pass any type.
+Then how we can decide the type?
+
+At runtime if 'it walks like a duck 
+and talks like a duck,it must be duck'.
+Python follows this principle. 
+This is called Duck Typing Philosophy of Python.
+
+
+2. Overloading:
+We can use same operator or methods 
+for different purposes.
+
+
+There are 3 types of overloading
+	1.Operator Overloading
+	2.Method Overloading
+	3.Constructor Overloading
+
+1.Operator Overloading:
+We can use the same operator 
+for multiple purposes, 
+which is nothing but operator overloading. 
+
+Python supports operator overloading.
+
+Eg1: + operator can be used for 
+Arithmetic addition and String 
+concatenation 
+
+print(10+20)#30
+print('rain'+'bow')#rainbow
+
+
+Eg2: * operator can be used for 
+multiplication and string 
+repetition purposes
+ 
+print(10*20)  #200
+print('anu'*3)#anuanu
+
+Demo program to use + operator 
+for our class objects:
+
+
+class Book:
+    def init(self, pages):
+        self.pages = pages
+
+
+b1 = Book(100)
+b2 = Book(200)
+print(b1 + b2)
+
+
+We can overload + operator 
+to work with Book objects also. 
+i.e Python supports Operator Overloading.
+
+
+For every operator Magic Methods are available.
+To overload any operator we have to
+override that Method in our class.
+
+Internally + operator is implemented 
+by using  __add__() method.
+
+This method is called magic method for + operator.
+ We have to override this method in our class.
+ 
+
+Demo program to overload + operator
+ for our Book class objects:
+ 
+class Book:
+    def __init__(self, pages):
+        self.pages = pages
+
+    def __add__(self, other):
+        return self.pages + other.pages
+
+
+b1 = Book(100)
+b2 = Book(200)
+print(b1 + b2)
+
+
+The following is the list of operators and corresponding magic methods.
+
+# +	---> object.__add__(self,other)
+# -	---> object.__sub__(self,other)
+# *	---> object.__mul__(self,other)
+# /	---> object.__div__(self,other)
+# //	---> object.__floordiv__(self,other)
+# %	---> object.__mod__(self,other)
+# **   --->object.__pow__(self,other)
+# +=   ---> object.__iadd__(self,other)
+# -=	--->  object.__isub__(self,other)
+# *=   ---> object.__imul__(self,other)
+# /=   ---> object.__idiv__(self,other)
+# //=   ---> object.__ifloordiv__(self,other)
+# %=   ---> object.__imod__(self,other)
+# **=   ---> object.__ ipow__(self,other)
+# <	--->  object.__lt__(self,other)
+# <=   ---> object.__le__(self,other)
+# >	---> object.__gt__(self,other)
+# >= --->  object.__ge__(self,other)
+# == ---> object.__eq__(self,other)
+# !=  ---> object.__ne__(self,other)
+
+
+Overloading > and <= operators for Student class objects:
+
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def __gt__(self, other):
+        return self.marks > other.marks
+
+    def __le__(self, other):
+        return self.marks <= other.marks
+
+
+print("10>20 =", 10 > 20)
+s1 = Student("Anu", 100)
+s2 = Student("Rakesh", 200)
+print("s1>s2=", s1 > s2)
+print("s1<s2=", s1 < s2)
+print("s1<=s2=", s1 <= s2)
+print("s1>=s2=", s1 >= s2)
+
+
+Program to overload multiplication operator 
+to work on Employee objects:
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def __mul__(self, other):
+        return self.salary * other.days
+
+
+class TimeSheet:
+    def __init__(self, name, days):
+        self.name = name
+        self.days = days
+
+
+e = Employee('Anu', 500)
+t = TimeSheet('Anu', 25)
+print('this month salary', e*t)
+
+
+
+2.Method Overloading:
+If 2 methods having same name
+ but different type of arguments then 
+ those methods are said to be overloaded methods.
+ 
+ Eg: m1(int a) m1(double d)
+ 
+ But in Python Method overloading is not possible.
+ 
+ If we are trying to declare multiple methods 
+ with same name and different number of arguments 
+ then Python will always consider only last method.
+
+class Test:
+
+    def m1(self):
+        print('no-arg method')
+
+    def m1(self,a):
+        print('one-arg method')
+
+    def m1(self, a, b):
+        print('two-arg method')
+
+t=Test()
+#t.m1()
+#t.m1(10)
+t.m1(10, 20)
+
+
+In the above program python will consider only last method.
+
+How we can handle overloaded method requirements in Python:
+
+Most of the times, if method with variable number of arguments
+required then we can handle with default arguments 
+or with variable number of argument methods.
+
+Demo Program with Default Arguments:
+
+class Test:
+    def sum(self, a=None, b=None, c=None):
+        if a != None and b != None and c != None:
+            print('The Sum of 3 Numbers:', a + b + c)
+        elif a != None and b != None:
+            print('The Sum of 2 Numbers:', a + b)
+        else:
+            print('Please provide 2 or 3 arguments')
+
+
+t = Test()
+t.sum(10, 20)
+t.sum(10, 20, 30)
+t.sum(10)
+
+
+Demo Program with Variable Number of Arguments:
+class Test:
+    def sum(self, *a):
+        total = 0
+        for x in a:
+            total = total + x
+        print('The Sum:', total)
+
+
+t = Test()
+t.sum(10, 20)
+t.sum(10, 20, 30)
+t.sum(10)
+t.sum()
+
+3.Constructor Overloading:
+Constructor overloading is not possible in Python.
+
+If we define multiple constructors 
+then the last constructor will be considered.
+
+class Test:
+		def __init__(self):
+			print('No-Arg Constructor')
+
+		def __init__(self, a):
+			print('One-Arg constructor')
+
+		def __init__(self, a, b):
+			print('Two-Arg constructor')
+
+
+# t1 = Test()
+# t1 = Test(10)
+t1 = Test(10, 20)
+
+In the above program
+ only Two-Arg Constructor is available.
+ 
+ But based on our requirement 
+ we can declare constructor 
+ with default arguments and 
+ variable number of arguments.
+
+Constructor with Default Arguments:
+
+class Test:
+    def __init__(self, a=None, b=None, c=None):
+        print('Constructor with 0|1|2|3 number of arguments')
+
+
+t1 = Test()
+t2 = Test(10)
+t3 = Test(10, 20)
+t4 = Test(10, 20, 30)
+
+
+Constructor with Variable Number of Arguments:
+
+class Test:
+    def __init__(self, *a):
+        print('Constructor with variable number of arguments')
+
+
+t1 = Test()
+t2 = Test(10)
+t3 = Test(10, 20)
+t4 = Test(10, 20, 30)
+t5 = Test(10, 20, 30, 40, 50, 60)
+
+-------------------------------------------------
+Method overriding:
+
+What ever members available in the parent class 
+are bydefault available to the child class
+ through inheritance. 
+ 
+If the child class not satisfied with parent class 
+ implementation then child class is allowed 
+ to redefine that method in the child class 
+ based on its requirement. 
+ This concept is called overriding.
+ 
+Overriding concept applicable 
+for both methods and constructors.
+
+From Overriding method of child class,
+we can call parent class method also by using super() method.
+
+From child class constuctor we can call
+ parent class constructor by using super() method.
+ 
+---------------------------------------------------

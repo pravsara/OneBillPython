@@ -1,0 +1,281 @@
+Python Basics & Scripting
+Duration: 15 Days
+Day 2
+1. Introduction
+ History and Overview   -------------------- Completed
+ Python setup  ----------------------------- Completed
+ Python data types and variables ----------- Completed
+ Operators---------------------------------- completed
+ Expressions
+ Statements and loops
+
+Mathematical Functions (math Module)
+A Module is collection of functions, variables and classes etc.
+math is a module that contains several functions to perform mathematical operations 
+If we want to use any module in Python, first we have to import that module.
+      import math
+Once we import a module then we can call any function of that module. 
+    import math
+	print(math.sqrt(16))   #4.0
+	print(math.pi)    #3.141592653589793
+	
+We can create alias name by using as keyword.
+	import math as m
+Once we create alias name,
+by using that we can access functions and variables of that module
+	import math as m 
+		print(m.sqrt(16)) 
+		print(m.pi)
+		
+We can import a particular member of a module explicitly as follows 
+	from math import sqrt
+    from math import sqrt,pi
+	
+If we import a member explicitly then
+    it is not required to use module name while accessing.
+
+from math import sqrt,pi 
+	print(sqrt(16))
+	print(pi)
+	
+important functions of math module:
+
+ceil(x) 
+floor(x) 
+pow(x,y) 
+factorial(x) 
+trunc(x) 
+gcd(x,y) 
+sin(x)
+cos(x)
+tan(x)
+
+important variables of math module:
+
+pi3.14 
+e===>2.71
+inf ==>infinity
+nan ==>not a number
+
+Write a Python program to find area of circle
+  pi*r**2
+from math import pi 
+r=16
+print("Area of Circle is :",pi*r**2) 
+=======================================================================================================
+
+Input And Output Statements
+
+Reading dynamic input from the keyboard.
+In Python 2 the following 2 functions are available to read dynamic input from the keyboard.
+	1.raw_input()
+	2.input()
+
+1.raw_input():
+   This function always reads the data from the keyboard in the form of String Format.
+   We have to convert that string type to our required type by using the corresponding type casting methods.
+   
+x=raw_input("Enter First Number:")
+print(type(x))	It will always print str type only for any input type
+
+2.input():
+input() function can be used to read data directly in our required format.
+We are not required to perform type casting.
+x=input("Enter Value) 
+type(x)
+
+10 ===> int 
+"durga"===>str 
+10.5===>float 
+True==>bool
+
+But in Python 3 we have only input() method and raw_input() method is not available.
+
+Python3 input() function behaviour exactly same as raw_input() method of Python2.
+
+every input value is treated as str type only. 
+raw_input() function of Python 2 is renamed as input() function in Python3
+   >>>type(input("Enter value:"))
+   Enter value:10
+   <class 'str'>
+   Enter value:10.5 
+   <class 'str'>
+   Enter value:True
+   <class 'str'>
+   
+1) eno=int(input("Enter Employee No:"))
+2) ename=input("Enter Employee Name:")
+3) esal=float(input("Enter Employee Salary:"))
+4) eaddr=input("Enter Employee Address:")
+5) married=bool(input("Employee Married ?[True|False]:"))
+
+How to read multiple values from the keyboard in a single line:
+a,b= [int(x) for x in input("Enter 2 numbers :").split()]
+print("Product is :", a*b)
+
+split() function can take space as seperator by default	.
+But we can pass anything as seperator.
+
+Write a program to read 3 float numbers 
+ from the keyboard with , seperator and print their sum.
+	1) a,b,c= [float(x) for x in input("Enter 3 float numbers :").split(',')]
+	2) print("The Sum is :", a+b+c)
+
+=====================================================================================
+output statements:
+We can use print() function to display output.
+Form-1: print() without any argument 
+    Just it prints new line character
+ print() with variable number of arguments:
+ 
+ 
+1. a,b,c=10,20,30
+2. print("The Values are :",a,b,c)
+
+By default output values are seperated by space
+If we want we can specify seperator by using "sep" attribute
+
+a,b,c=10,20,30
+print(a,b,c,sep=',')
+print(a,b,c,sep=':')
+
+print() with end attribute:
+print("Hello",end='')
+print("welcome",end='')
+print("2021")
+Note: The default value for end attribute is \n,which is nothing but new line character.
+ print() statement with String and any number of arguments
+ print("You are teaching",s1,"and",s2)
+
+=============================================================================================
+
+Flow Control
+Flow control describes the order in which statements will be executed at runtime.
+
+Control Flow
+
+Conditional Statements
+Transfer Statements
+Iterative Statements
+
+Conditional Statements  ( amoung multiple options only one option is selected and will be executed)
+1)if
+2)if-elif
+3)if-elif-else
+
+Transfer Statements  ( group of statements should execute interatively)
+1)break
+2)continue
+3)pass
+
+Iterative Statements
+1)for
+2)while
+
+----------------------------------
+if  ---If condition is true then statements will be executed.
+
+if condition : 
+       statement 
+or
+if condition : 
+	statement-1 
+	statement-2 
+	statement-3
+	
+-------------------------------------
+2)if-else:
+
+if condition :
+		Action-1 
+else :
+		Action-2
+
+if condition is true then Action-1 will be executed 
+otherwise Action-2 will be executed. 
+
+-------------------------------------------
+3)if-elif-else: Based condition the corresponding action will be executed. 
+Syntax:
+
+if condition1:
+		Action-1
+elif condition2:
+		Action-2
+elif condition3:
+		Action-3
+elif condition4:
+		Action-4
+
+else:
+     Default Action
+---------------------------------------------------
+Note:
+
+1.else part is always optional
+Hence the following are various possible syntaxes.
+1.if
+2.if - else
+3.if-elif-else 
+4.if-elif
+
+2.There is no switch statement in Python
+----------------------------------------------------
+
+II.Iterative Statements	
+If we want to execute a group of statements multiple times
+ then we should go for Iterative statements.
+Python supports 2 types of iterative statements.
+	1.for loop
+	2.while loop
+	
+1)for loop:
+   If we want to execute some action for every element present in some sequence
+   (it may be string or collection)then we should go for for loop.
+   Syntax:
+     for x in sequence : 
+	   body
+	 where sequence can be string or any collection.
+	 Body will be executed for every element present in the sequence.
+	 Eg 1: To print characters present in the given string
+	    s ="stars"
+	    for x in s :
+			print(x)
+2)while loop:
+  If we want to execute a group of statements iteratively 
+  until some condition false,then we should go for while loop.
+   Syntax:
+     while condition : body
+	 
+	To print numbers from 1 to 10 by using while loop
+	x=1
+	while x <=10:
+	  print(x)
+	   x=x+1
+	  
+	   
+III.Transfer Statements
+     1)break:
+	   We can use break statement inside loops to break loop execution based on some condition.
+
+     2)continue:
+	    We can use continue statement to skip current iteration and continue next iteration. 
+
+      3)pass statement:
+	  pass is a keyword in Python
+	  
+	  In our programming syntactically 
+	  if block is required which won't do anything 
+	  then we can define that empty block with pass keyword.
+	  
+	  pass
+|- It is an empty statement
+|- It is null statement
+|- It won't do anything 
+
+
+
+
+
+
+

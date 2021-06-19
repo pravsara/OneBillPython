@@ -1,0 +1,626 @@
+Python Basics & Scripting
+Duration: 15 Days
+
+Day1:
+
+1. Introduction
+ History and Overview   -------------------- Completed
+ Python setup  ----------------------------- Completed
+ Python data types and variables 
+ Operators
+ Expressions
+ Statements and loops
+
+
+Data Types:
+
+Data Type is the type of data/value represented by the variable.
+In Python we are not required to specify the type explicitly.
+       Based on value provided,the type will be assigned automatically.Hence Python is Dynamically Typed Language. (so int float etc are not in keywords)
+	   Python contains the following inbuilt data types
+									1.int
+									2.float
+	standard Inbuilt Data types 	3.complex                                 
+	  (fundamental)					4.bool 									         
+									5.str 											    
+													6.bytes															
+													7.bytearray															
+													8.range 
+													9.list                 sequence 
+													10.tuple               and  collection related data types.
+													11.set 
+													12.frozenset 
+													13.dict 
+													14.None
+In Python everything is object	:												
+ for remaining languages  fundamental data types doesnt represent objects but in python everything is an object
+    including int float method function also ( internally stored as object)	
+       a=10 a is reference variable	
+	        10 is stored in object.
+   			
+========================================================================================================================================================
+
+1) int data type:
+    We can use int data type to represent whole numbers (integral values) 
+	Eg: a=10
+		type(a) #<class 'int'> means a is an object of class name 'int'
+		
+	Note:
+		In Python2 we have long data type to represent very large integral values.
+		But in Python3 there is no long type explicitly and we can represent long values also by using int type only.
+    ------------------------------------------------------------------------------------------------
+	We can represent int values in the following ways
+
+	1.Decimal form
+	2.Binary form
+	3.Octal form
+	4.Hexa decimal form
+	
+	1.Decimal form(base-10):
+		It is the default number system in Python The allowed digits are: 0 to 9
+		Eg: a =10
+		
+	2.Binary form(Base-2):
+		The allowed digits are : 0 & 1
+		Literal value should be prefixed with 0b or 0B
+		Eg: a = 0B1111 
+			a =0B123
+			a=0b111
+	
+	3.Octal Form(Base-8):
+		The allowed digits are : 0 to 7
+		Literal value should be prefixed with 0o or 0O.
+		Eg: a=0o123
+			a=0o786
+			
+    4.Hexa Decimal Form(Base-16):
+		The allowed digits are : 0 to 9, a-f (both lower and upper cases are allowed) Literal value should be prefixed with 0x or 0X
+		Eg:	a =0XFACE
+			a=0XBeef 
+			
+	Note: Being a programmer we can specify literal values in decimal, binary, octal and hexa decimal forms. 
+			But PVM will always provide values only in decimal form.	
+				a=10        print(a)#10
+				b=0o10 		print(b)#8
+				c=0X10 		print(c)#16 
+				d=0B10		print(d)#2
+	-------------------------------------------------------------------------------------------------			
+	Base Conversions
+		Python provide the following in-built functions for base conversions
+		
+		1.bin(): We can use bin() to convert from any base to binary 
+          Eg    >>> bin(15)
+				   '0b1111'
+				>>> bin(0o11)
+					'0b1001'
+				>>> bin(0X10)
+					'0b10000' 
+					
+        2.oct():We can use oct() to convert from any base to octal	
+          Eg:	>>> oct(10)
+				'0o12'
+				>>> oct(0B1111)
+				'0o17'
+				>>> oct(0X123)
+				'0o443'	
+		
+		3.hex():We can use hex() to convert from any base to hexa decimal 
+		  Eg:   >>> hex(100)
+				'0x64'
+				>>> hex(0B111111)
+				'0x3f'
+				>>> hex(0o12345)
+				'0x14e5'
+provided values and return values are int type only.	
+
+						 
+========================================================================================================================================
+							
+2)float data type: 
+    We can use float data type to represent floating point values (decimal values)
+	Eg: f=1.234
+		type(f) #<class 'float'> means f is an object of class name 'float'
+		
+	We can also represent floating point values by using exponential form (scientific notation)
+		Eg: f=1.2e3            instead of 'e' we can use 'E'
+			print(f)  #1200.0
+			The main advantage of exponential form is we can represent big values in less memory.
+	Note:
+		 We can represent int values in decimal, binary, octal and hexa decimal forms. 
+		 But we can represent float values only by using decimal form.	
+		Eg:	>>> f=0B11.01 # invalid Syntax
+		    >>> f=0o123.456
+			>>> f=0X123.456
+	In java double is there in python for all decimal values float datatype is considered
+	  
+			
+======================================================================================================================================
+3)Complex Data Type:
+	A complex number is of the form 
+	  a+bj (accepts only j. Alsoj should be after b only.)
+	  a real part     
+	  b imaginary part
+	  j^2 is -1  
+	  
+	a and b contain intergers or floating point values 
+		Eg:
+			3+5j
+			10+5.5j
+			0.5+0.1j
+			
+		10.5+20i (syntax error)
+		10+j20  (not valid)
+		
+	In the real part
+		if we use int value then 
+			we can specify that either by decimal,octal,binary or hexa decimal form.
+		But imaginary part should be specified only by using decimal form.
+		Eg: 
+			>>> a=0B11+5j
+			    print(a)  #(3+5j)
+			>>> a=3+0B11j
+				print(a)  #SyntaxError: invalid syntax
+				
+	Even we can perform operations on complex type values.
+	    a=10+1.5j
+		b=20+2.5j
+		c=a+b
+		print(c) #(30+4j)
+		print(type(c)) # <class 'complex'>
+		
+	Note: Complex data type has some inbuilt attributes to retrieve the real part and imaginary part.
+				c=10.5+3.6j
+				c.real   ==>10.5 ( here internally it is treating as float)
+				c.imag   ==>3.6
+  
+	We can use complex type generally in scientific Applications and electrical engineering Applications.	
+
+=============================================================================================================================================
+
+4.bool data type:
+    We can use this data type to represent boolean values. 
+	The only allowed values for this data type are: True and False. (T , F capital)
+	Internally Python represents True as 1 and False as 0 .
+	
+	Eg:  b=True
+      type(b) =>bool
+	  
+	Eg a=10 
+	   b=20
+       c=a<b 
+	   print(c)==>True
+	   
+	   True+True==>2 
+	   True-False==>1
+	   True/True  # 1.0
+	   True/False #Zero division Error
+	   
+==================================================================================================================================
+
+5.str type:
+   str represents String data type.
+   A String is a sequence of characters enclosed within single quotes or double quotes.
+		 s1='rajasree'
+		 s1="rajasree"
+    By using single quotes or double quotes we cannot represent multi line string literals. 
+	  For this we should go for triple single quotes(''') or triple double quotes(""")
+	    s1=''' Hi 
+		     Good morning'''
+
+		s1=""" Hi 
+				Good morning"""
+    We can also use triple quotes to use single quote or double quote in our String. 
+				''' This is " character'''
+				' This i " Character '
+	 
+			We can embed one string in another string
+				'''This "Python class very helpful" for  students'''
+	
+	-------------------------------------------------------------------------------	  
+	 In Python Strings follows zero based index.
+		The index can be either +ve or -ve.
+				+ve index means forward direction from Left to Right
+				-ve index means backward direction from Right to Left
+	 
+							-5	-4	-3	-2	-1
+							S	T 	A	R	S
+							0	1	2	3	4	  
+	   
+						Eg   >>> s="STARS"
+						     >>> s[0]  # 's'
+							 >>> s[1]	# 'T'
+							 >>> s[-3]	# 'A'
+							 >>> s[40]   # IndexError: string index out of range
+							 >>> s[-10]  # IndexError:
+-------------------------------------------------------------------------------
+    Slicing of Strings:	
+	  to retrieve parts of String(sub string)
+	  [ begin:end ] operator is called slice operator 
+	   Returns substring from 'begin' index to 'end-1' index
+							-5	-4	-3	-2	-1
+							S	T 	A	R	S
+							0	1	2	3	4	   
+	     			
+							Eg >>> s[1:40]  #TARS   # value not in range automatically consider end of string 
+								   s[1:]	#TARS   #end value default end of the string  (Optional)     
+								   s[:4]	#STAR   #start value default beginning of the string (optional)
+								   s[:]		#STARS  #full string
+								   s[1:4]   #TAR
+								   s[-4:-1]  #TAR
+								   s[-1:-4]  # ''   # empty string begin should be lower than end value
+								   
+		Slice operator never going to give index error.
+		>>> s[-10]  # IndexError:  here we are not using slice operator		
+    --------------------------------------------------------------------------------
+	
+	s[begin:end] here it takes begin to end-1
+	s[begin:end:step]  step -- how much jump we need to takes
+	  >>> s="STARS"
+			s[::2]		#SAS
+	   
+	-----------------------------------------------------------------------------  
+    In Python,we can represent char values also by using str type and explicitly char type is not available.
+		Eg:
+		 >>> c='a'
+		  <class 'str'>
+-----------------------------------------------------------------------------=---
+	
+Type Casting
+    We can convert one type value to another type.
+	This conversion is called Typecasting or Type coersion.
+	  various inbuilt functions for type casting.
+					1.int()
+					2.float()
+					3.complex()
+					4.bool()
+					5.str()
+	
+	    1.int() : this function to convert values from other types to int 
+		            >>> int(123.987)  	# 123
+					>>> int(10+5j)    	# TypeError: can't convert complex to int
+					>>> int(True)	  	# 1
+					>>> int(False)	  	# 0
+					>>> int("10")	  	# 10
+					>>> int("10.5")	  	# ValueError: invalid literal for int() with base 10: '10.5'
+					>>> int("ten")		# ValueError: invalid literal for int() with base 10: 'ten'
+					>>> int("0B1111")	# ValueError: invalid literal for int() with base 10: '0B1111'
+					
+					implies float to int  --> possible
+					        complex to int ---> not posssible
+							bool to int ---->possible
+							str to int ------> possible only if value is int with base 10
+								 
+		2. float(): function to convert other type values to float type.
+					>>> float(10)		# 10.0
+					>>> float(10+5j)    # TypeError: can't convert complex to float
+					>>> float(True)	  	# 1.0
+					>>> float(False)	# 0.0
+					>>> float("10")		# 10.0
+					>>> float("10.5")	# 10.5
+					>>> float("ten")	# ValueError: could not convert string to float: 'ten'
+					>>> float("0B1111")	# ValueError: could not convert string to float: '0B1111'
+					
+					implies int to float  --> possible
+					        complex to float ---> not posssible
+							bool to float ---->possible
+							str to float ------> possible only if value is int with base 10 and float.
+							
+		3.complex():  function to convert other types to complex type.
+                acc oops it is overloaded function ===> method name same arguments different ( Number /Type)
+				Form-1: complex(x) 
+						function to convert x into complex number with real part x and imaginary part 0.
+					Eg:
+						>>> complex(10)==>10+0j
+						>>> complex(10.5)===>10.5+0j
+						>>> complex(True)==>1+0j
+						>>> complex(False)==>0j
+						>>> complex("10")==>10+0j
+						>>> complex("10.5")==>10.5+0j
+						>>> complex("ten") ==>ValueError: complex() arg is a malformed string
+						>>> complex("0B1111")	# ValueError 
+						
+						implies int to complex  --> possible
+								float to complex --->posssible
+								bool to complex ---->possible
+								str to complex ------> possible only if value is int with base 10 and float.
+						
+				Form-2: complex(x,y)
+						to convert x and y into complex number such that x will be real part and y will be imaginary part.
+					Eg: 
+						>>>complex(10,-2)==>10-2j 
+						>>>complex(True,False)==>1+0j
+						>>>complex(10,20.5)==>10+20.5j
+						>>>complex("10","12")==> Type error cant take 2nd arg if first is string.
+											  if first arg is string compulsorily one arg only.
+		
+		4.bool():  function to convert other type values to bool type.
+		
+				bool(x)
+				 1) if x int, 0 means false non-zero means True
+					>>> bool(0)==>False
+					>>> bool(1)==>True
+					>>> bool(10)===>True
+				 2) if x is float, value is zero false otherwise True
+				    >>> bool(10.5)===>True
+					>>> bool(0.178)==>True
+					>>> bool(0.0)==>False
+				 3) if x is complex  both real and imag parts are 0 ===>False otherwise True
+					>>> bool(10-2j)==>True
+					>>> bool(0+1.5j)==>True
+					>>> bool(0+0j)==>False
+				 4) if x is str empty string ===>False otherwise True
+				    >>> bool("")==>False
+					>>> bool("True")==>True
+					>>> bool("False")==>True
+				 
+				implies int ,float,complex,str to bool  --> possible
+				bool()fun never going to give any error.
+		
+		5.str(): to convert other type values to str type
+		    Eg:
+				 >>> str(10)    #'10'
+				 >>> str(10.5)  #'10.5'
+				 >>> str(10+5j) #'(10+5j)'
+				 >>> str(True)  #'True'
+				 
+				 Any value can be converted to string.
+				 
+==========================================================================================
+
+Fundamental Data Types vs Immutability:
+     non-chageable behaviour is called immutability.  adv reusability , memeory utillization and performance.
+	 i.e once we creates an object,we cannot perform any changes in that object. 
+	 If we are trying to change then with those changes a new object will be created.
+	 
+	 All Fundamental Data types are immutable.
+	 
+	 In Python if a new object is required, then PVM wont create object immediately. 
+	 First it will check is any object available with the required content or not. 
+	 If available then existing object will be reused. 
+	 If it is not available then only a new object will be created. 
+	 The advantage of this approach is memory utilization and performance will be improved.
+	 
+	 
+	 But the problem in this approach is,several references pointing to the same object,
+	 by using one reference if we are allowed to change the content in the existing object 
+	 then the remaining references will be effected.
+	 
+	 To prevent this immutability concept is required.
+	 According to this once creates an object we are not allowed to change content.
+	 If we are trying to change with those changes a new object will be created.
+	 
+	 Eg:
+	 is operator checks whether both represents same object or not if yes return True else false.
+			>>> a=10
+			>>> b=10
+			>>> a is b   # True          
+			>>> id(a)	 # 1572353952    
+			>>> id(b)	 # 1572353952
+			
+			>>> a=257
+			>>> b=257
+			>>> a is b   # False     in case of int reusability 0 to 256 only
+			    
+			
+			
+			>>> a=10+5j
+			>>> b=10+5j
+			>>> a is b	# False
+			>>> id(a) 	# 15980256
+			>>> id(b)	# 15979944     for float, complex reusability property is not there.
+			
+			>>> a=True
+			>>> b=True
+			>>> a is b  #True
+			>>> id(a) 	#1572172624
+			>>> id(b)   #1572172624    in case of bool  reusability always
+			
+			 a='durga'
+			>>> b='durga'
+			>>> a is b   # True
+			>>> id(a) 	 #16378848      in case of bool  reusability always
+			>>> id(b)	 #16378848
+===========================================================================================================
+6. bytes Data Type:
+    represens a group of byte numbers just like an array.
+	  creating a byte
+			  >>> x = [10,20,30,40]  ----> not a bytes datatype
+			  >>> b = bytes(x)       ----> now its a bytes datatype with 4 values
+			  >>> type(b)
+			  >>> b[0]  -----> Index concept is used 
+			  >>> b[1]
+			  >>> b[-1]
+			  >>> b[0:3]   not an error internally some objects we will get.
+			  >>> for x in b: print(x) # every value in is printed.
+			  
+	The only allowed values for bytes
+	data type are 0 to 256. 
+	any other values then we will get ValueError
+			  >>> x = [10,20,256,258]  ----> not a byte datatype
+			  >>> b = bytes(x)   # ValueError
+			  
+	Once we creates bytes data type value, we cannot change its values,otherwise we will get TypeError.
+	implies immutable.
+		Eg:
+			 >>> x=[10,20,30,40]
+			 >>> b=bytes(x)
+			 >>> b[0]=100    #TypeError: 'bytes' object does not support item assignment
+			 
+=============================================================================================================
+
+7. bytearray Data type:
+   bytearray is exactly same as bytes data type except that its elements can be modified. (mutable)
+	Eg 1:
+		 >>>x=[10,20,30,40]
+		 >>>b = bytearray(x)
+		 >>>type(b)
+		 >>>for i in b : print(i)
+		 >>>b[0]=100
+	     >>>for i in b: print(i)
+		 
+	Eg 2:
+		>>> x =[10,256]  
+		>>> b = bytearray(x)    #ValueError: byte must be in range(0, 256)
+		
+		
+bytes (not byte) and byte array are used to represent binary data like images , video files etc
+		
+========================================================================================================
+
+8. list data type: (mutable)
+If we want to represent a group of values as a single entity 
+where insertion order required to preserve 
+and duplicates are allowed then we should go for list data type.
+		1.insertion order is preserved
+		2.heterogeneous objects are allowed
+		3.duplicates are allowed
+		4.Growable in nature
+		5.values should be enclosed within square brackets.
+	  Eg: 	
+		>>> list=[10,10.5,'star',True,10]
+		>>> print(list)            # [10,10.5,'star',True,10]
+		
+		>>> list=[10,20,30,40]
+		>>> list[0]    #10
+		>>> list[-1]   #40
+		>>> list[1:3]  #[20,30]
+		>>> list[0]=100
+		>>> for i in list:print(i)
+		
+	list is growable in nature. i.e based on our requirement we can increase or decrease the size.
+		Eg:
+			 >>> list=[10,20,30]
+			 >>> list.append("star")
+			 >>> list  	#[10, 20, 30, 'star']
+			 >>> list.remove(20)
+			 >>> list     #[10, 30, 'star']
+			 >>> list2=list*2  (repitition operator)
+			 >>> list2  #[10, 30, 'star', 10, 30, 'star']
+			 
+	An ordered, mutable, heterogenous collection of elemnts is nothing but list, where duplicates also allowed.
+			 
+===============================================================================================
+9.tuple data type:
+   tuple data type is exactly same as list data type 
+   except that it is immutable.i.e we cannot chage values.	
+   
+   Tuple elements can be represented within parenthesis. 
+   Eg:
+     >>>t=(10,20,30,40)
+	 >>>type(t)   #<class 'tuple'>
+	 >>>t[0]=100  #TypeError: 'tuple' object does not support item assignment
+  tuple is the read only version of list
+  
+ ================================================================================================
+ 10. range Data Type:
+		range Data Type represents a sequence of numbers.
+		The elements present in range Data type are not modifiable. i.e range Data type is immutable.
+		Form-1: range(10)
+		        for i in r : print(i)
+				generate numbers from 0 to 9
+		Form-2: range(10,20)
+		        for i in r : print(i)
+				generate numbers from 10 to 19 
+		Form-3: range(10,20,2)
+				2 means increment value 
+				for i in r : print(i)	#10,12,14,16,18
+		examples:
+		
+		r=range(10,20) 
+		>>>r[0]==>10
+		>>>r[15]==>IndexError: range object index out of range 
+		
+		We cannot modify the values of range data type
+		>>>r[0]=100 ==> TypeError: 'range' object does not support item assignment 
+		
+  ================================================================================================
+  11 .set Data Type:
+       If we want to represent a group of values without duplicates 
+	   where order is not important then we should go for set Data Type.
+			1.insertion order is not preserved
+			2.duplicates are not allowed
+			3.heterogeneous objects are allowed
+			4.index concept is not applicable
+			5.It is mutable collection
+			6.Growable in nature 
+			
+		Eg:
+			>>> s={100,0,10,200,10,'durga'}
+			>>> s        # {0, 100, 'durga', 200, 10}
+			
+			>>> s[0]    # TypeError: 'set' object does not support indexing
+		
+		set is growable in nature, based on our requirement we can increase or decrease the size.
+			>>> s.add(60)
+			>>> s   # {0, 100, 'durga', 200, 10, 60}
+			>>> s.remove(100)
+			>>> s   #{0, 'durga', 200, 10, 60}
+			
+=====================================================================================================
+12. frozenset Data Type:
+			It is exactly same as set except that it is immutable. 
+			Hence we cannot use add or remove functions.
+			>>> fs={10,20,30,40}
+			>>> type(fs)  <class 'frozenset'>
+			>>> fs
+			>>> fs.add(70)  #AttributeError: 'frozenset' object has no attribute 'add'
+			>>> fs.remove(10) #AttributeError: 'frozenset' object has no attribute 'remove'
+			
+====================================================================================================
+ 13. dict Data Type:
+     If we want to represent a group of values as key-value pairs then we should go for dict data type
+	 Eg:
+        d={101:'star',102:'moon',103:'sun'}
+		
+		Duplicate keys are not allowed but values can be duplicated.
+		If we are trying to insert an entry with duplicate key then old value will be replaced with new value.
+		   >>> {101:'star',102:'moon',103:'sun'}
+			>>> d[101]='sunny'
+			>>> d
+		We can add key-value pairs as follows
+			d['a']='apple'
+			d['b']='banana'
+			print(d)
+			
+		Note: dict is mutable and the order wont be preserved.
+=====================================================================================================
+None Data Type:
+None means Nothing or No value associated.
+If the value is not available,then to handle such type of cases None introduced. 
+It is something like null value in Java.
+Eg:
+def m1():
+a=10
+
+print(m1()) #None
+
+======================================================================================================
+
+
+
+    
+	     
+
+	
+	
+							 
+						
+
+		
+				
+
+		 
+  
+	    
+    
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,1007 @@
+Python Basics & Scripting
+Duration: 15 Days
+
+1. Introduction------------completed
+2. Python Data Structures
+		 List
+		 String ---------------------------completed
+		 Dictionary
+		 set
+		 tuple
+		 Coding Exercise 
+ 
+strings		
+len() :to find the number of characters present in the string.
+Checking Membership:
+check whether the character or string is the member of another string or not by using  
+in and not in operators
+
+Comparison of Strings:
+We can use comparison operators (<,<=,>,>=) and equality operators(==,!=) for strings.
+Comparison will be performed based on alphabetical order.
+
+Removing spaces from the string:
+	We can use the following 3 methods
+		1.rstrip()===>To remove spaces at right hand side
+		2.lstrip()===>To remove spaces at left hand side
+		3.strip() ==>To remove spaces both sides
+
+Finding Substrings:
+We can use the following 4 methods
+	For forward direction:
+		find() 
+		index()
+	For backward direction:
+		rfind() 
+		rindex()
+
+1. find():
+s.find(substring)
+Returns index of first occurrence of the given substring. 
+If it is not available then we will get -1
+
+By default find() method can search total string.
+We can also specify the boundaries to search.
+s.find(substring,bEgin,end)
+It will always search from bEgin index to end-1 index
+
+
+2 index() method:
+index() method is exactly same as find() method 
+except that if the specified substring is not available 
+ then we will get ValueError.
+ 
+Counting substring in the given String:
+We can find the number of occurrences of substring present in the given string by using count() method.
+	1.s.count(substring) ==> It will search through out the string
+	2.s.count(substring, bEgin, end) ===> It will search from bEgin index to end-1 index
+	
+Replacing a string with another string:
+s.replace(oldstring,newstring)
+inside s, every occurrence of oldstring will be replaced with newstring.
+
+String objects are immutable then how we can change the content by using replace() method.
+Once we creates string object, we cannot change the content.
+This non changeable behaviour is nothing but immutability. 
+If we are trying to change the content by using any method, 
+then with those changes a new object will be created and changes won't be happend in existing object.
+Hence with replace() method also a new object got created but existing object won't be changed.
+
+Splitting of Strings:
+	We can split the given string according to specified seperator by using split() method.
+	l=s.split(seperator)
+	The default seperator is space. The return type of split() method is List
+
+Joining of Strings:
+	We can join a group of strings(list or tuple) wrt the given seperator. 
+	s=seperator.join(group of strings)
+	
+Changing case of a String:
+
+We can change case of a string by using the following 4 methods.
+
+1.upper()===>To convert all characters to upper case
+2.lower() ===>To convert all characters to lower case
+3.swapcase()===>converts all lower case characters to upper case 
+			and all upper case characters to lower case
+4.title() ===>To convert all character to title case. 
+	i.e first character in every word should be upper case and all remaining characters should be in lower case.
+5.capitalize() ==>Only first character will be converted to upper case 
+					and all remaining characters can be converted to lower case	
+					
+Checking starting and ending part of the string:
+Python contains the following methods for this purpose
+	1.s.startswith(substring)
+	2.s.endswith(substring)
+
+To check type of characters present in a string:
+Python contains the following methods for this purpose.
+1)isalnum(): Returns True if all characters are alphanumeric( a to z , A to Z ,0 to9 )
+2)isalpha(): Returns True if all characters are only alphabet symbols(a to z,A to Z)
+3)isdigit(): Returns True if all characters are digits only( 0 to 9)
+4)islower(): Returns True if all characters are lower case alphabet symbols
+5)isupper(): Returns True if all characters are upper case aplhabet symbols
+6)istitle(): Returns True if string is in title case
+7)isspace(): Returns True if string contains only spaces
+
+
+====================================================================================================================	
+	
+ List
+
+Creation of List Objects:
+We can create empty list
+				list=[]
+				print(list)
+				print(type(list))
+2.list=[10,20,30,40]
+3.With dynamic input:
+   list=eval(input("Enter List:"))  #Enter List:[10,20,30,40]
+   print(list)						#[10, 20, 30, 40]
+   print(type(list))				#<class 'list'>
+4.With list() function:
+    l=list(range(0,10,2))
+	print(l)                 #[0, 2, 4, 6, 8]
+	print(type(l))			 #<class 'list'>
+	
+	s="stars"
+	l=list(s)
+	print(l)   #['s', 't', 'a', 'r', 's']
+5.with split() function:
+	s="Python is very easy !!!"
+	l=s.split()
+	print(l)
+	print(type(l))  # <class 'list'>
+	
+	Sometimes we can take list inside another list,such type of lists are called nested lists. 
+	[10,20,[30,40]]
+	
+Accessing elements of List:
+  1.By using index:
+  2.By using slice operator:
+  
+Traversing the elements of List:
+The sequential access of each element in the list is called traversal.
+1.By using while loop:
+		n=[0,1,2,3,4,5,6,7,8,9,10]
+		i=0
+		while i<len(n):
+			print(n[i])
+			i=i+1
+2.By using for loop:
+       n=[0,1,2,3,4,5,6,7,8,9,10]
+	   for n1 in n:
+	     print(n1)
+	
+3.To display only even numbers:	
+       n=[0,1,2,3,4,5,6,7,8,9,10]	
+	    for n1 in n:
+			if n1%2==0:
+				print(n1)
+
+Important functions of List:
+I.To get information about list:
+    1.len(): returns the number of elements present in the list
+	    n=[10,20,30,40]
+		print(len(n))==>4
+		
+	2.count():
+	   It returns the number of occurrences of specified item in the list
+		n=[1,2,2,2,2,3,3]
+		print(n.count(3))
+		print(n.count(4))
+	3.index() function:
+	    returns the index of first occurrence of the specified item
+		 n=[1,2,2,2,2,3,3]
+		 print(n.index(3))
+		 print(n.index(4))  =>ValueError: 4 is not in list
+		 
+II.Manipulating elements of List:
+    1.append() function: to add item at the end of the list
+		 list=[]
+		 list.append("A")
+		 list.append("B")
+		 list.append("C")
+		 print(list)   #['A', 'B', 'C']
+		 
+	To add all elements to list upto 100 which are divisible by 10
+		 list=[]
+		 for i in range(101):
+			if i%10==0:
+				list.append(i)
+		 print(list) 
+		 
+	2.insert() function: To insert item at specified index position
+		n=[1,2,3,4,5]
+		n.insert(1,888)
+		print(n)   #[1, 888, 2, 3, 4, 5]
+		
+If the specified index is greater than max index 
+			then element will be inserted at last position.
+If the specified index is smaller than min index 
+			then element will be inserted at first position.		
+		n.insert(10,777)  
+		n.insert(-10,999)
+[999, 1, 2, 3, 4, 5, 777]
+				
+Differences between append() and insert()
+In List when we add any element it will come in last i.e. it will be last element.
+In List we can insert any element in particular index number
+
+3.extend() function:
+  To add all items of one list to another list
+   l1.extend(l2)
+		all items present in l2 will be added to l1 
+		
+	>>>l1=[10,20,30,40]
+	>>>l2=[50,60]
+	   l1.extend(l2)	
+	   
+	>>>l1=["SUN","SET"]
+	   l2=["Moon","light"]
+	   l1.extend(l2)
+	   l3=["star"]
+	   l1.extend(l3)
+4.remove() function:
+    We can use this function to remove specified item from the list.
+	If the item present multiple times then only first occurrence will be removed.
+	
+	n=[10,20,10,30]
+	n.remove(10)
+	print(n)
+	If the specified item not present in list then we will get ValueError
+	n.remove(40)  # ValueError: list.remove(x): x not in list
+	
+5.pop() function:
+	It removes and returns the last element of the list.
+	This is only function which manipulates list and returns some element. 
+	 n=[10,20,30,40]
+	 print(n.pop()) --->40
+	 print(n.pop()) ---> 30
+	 print(n)        #[10, 20]
+	 
+	If the list is empty then pop() function raises IndexError 
+	n=[]
+	print(n.pop())==> IndexError: pop from empty list
+	
+	we can use append() and pop() functions 
+	to implement stack datastructure by using list,which follows LIFO(Last In First Out) order
+	
+	In general we can use pop() function to remove last element of the list. 
+	But we can use to remove elements based on index.
+	n.pop(index)===>To remove and return element present at specified index. 
+	n.pop()==>To remove and return last element of the list
+		n=[10,20,30,40,50,60]
+		print(n.pop()) #60
+		print(n.pop(1))	#20
+		print(n.pop(10)) ==>IndexError: pop index out of range
+		
+Differences between remove() and pop()
+remove()	
+1) We can use to remove special element from the List.	
+2) It can’t return any value.	
+3) If special element not available then we get VALUE ERROR.	
+	
+pop()	   
+1) We can use to remove last element from the List.	
+2) It returned removed element.
+3) If List is empty then we get Error.
+
+List objects are dynamic. i.e based on our requirement we can increase and decrease the size
+append(),insert() ,extend() ===>for increasing the size/growable nature 
+remove(), pop() ======>for decreasing the size /shrinking nature
+
+
+III.Ordering elements of List:
+1.reverse():
+  We can use to reverse() order of elements of list.
+     n=[10,20,30,40]
+	 n.reverse()
+	 print(n)    #[40, 30, 20, 10]
+	 
+2.sort():
+  In list by default insertion order is preserved. 
+  If want to sort the elements of list 
+      according to default natural sorting order then we should go for sort() method.
+	  
+	For numbers ==>default natural sorting order is Ascending Order
+	For Strings ==>default natural sorting order is Alphabetical Order
+		n=[20,5,15,10,0]
+		n.sort()
+		print(n)     #[0,5,10,15,20]
+		
+	 s=["Dot","Bat","Cat","Ant"]
+	 s.sort()
+	 print(s)
+
+	To use sort() function, compulsory list should 
+		contain only homogeneous elements. otherwise we will get TypeError
+		n=[20,10,"A","B"]
+		n.sort()
+		print(n) #TypeError: '<' not supported between instances of 'str' and 'int'
+		
+	 In Python2 if List contains both numbers and Strings 
+	 then sort() function first sort numbers followed by strings
+	 
+	To sort in reverse of default natural sorting order:
+	   by using reverse=True argument.
+		   n=[40,10,30,20]
+		   n.sort()
+		   print(n)
+		   n.sort(reverse=True)
+		   print(n) ===>[40,30,20,10]
+		   n.sort(reverse=False)
+		   print(n) ==>[10,20,30,40]
+		   
+Aliasing and Cloning of List objects:
+The process of giving another reference variable to the existing list is called aliasing.
+     x=[10,20,30,40]
+	 y=x
+	 print(id(x))
+	 print(id(y))
+	 
+The problem in this approach is by using one reference variable 
+ if we are changing content,
+		then those changes will be reflected to the other reference variable. 
+	x=[10,20,30,40]
+	y=x	
+	y[1]=777
+	print(x) ==>[10,777,30,40]
+	
+To overcome this problem we should go for cloning.
+The process of creating exactly duplicate independent object is called cloning.
+We can implement cloning 
+    by using slice operator 
+	or by using copy() function
+	
+1.By using slice operator:
+   x=[10,20,30,40]
+   y=x[:]
+   y[1]=777
+   print(x) ==>[10,20,30,40]
+   print(y) ==>[10,777,30,40]
+
+2.By using copy() function:
+   x=[10,20,30,40]
+   y=x.copy()
+   y[1]=777
+   print(x) ==>[10,20,30,40]
+   print(y) ==>[10,777,30,40]
+   
+ Difference between = operator and copy() function
+ = operator meant for aliasing 
+ copy() function meant for cloning
+ 
+ Using Mathematical operators for List Objects:
+ We can use + and * operators for List objects
+ 
+ 1.Concatenation operator(+):
+   We can use + to concatenate 2 lists into a single list
+     a=[10,20,30]
+	 b=[40,50,60]
+	 c=a+b
+	 print(c) ==>[10,20,30,40,50,60]
+	 To use + operator compulsory both arguments should be list objects
+	      ,otherwise we will get TypeError. 
+		c=a+40	==>TypeError: can only concatenate list (not "int") to list 
+		c=a+[40]	==>valid  
+		
+  2.Repetition Operator(*):
+	 to repeat elements of list specified number of times
+	 x=[10,20,30]
+	 y=x*3
+	 print(y)==>[10,20,30,10,20,30,10,20,30]
+	 
+Comparing List objects:
+We can use comparison operators for List objects. 
+	x=["D","C","R"]
+	y=["D","C","R"]
+	z=["d","c","r"]
+	print(x==y) True
+	print(x==z)	False
+	print(x != z)	True
+	
+Whenever we are using comparison operators(==,!=) for List objects 
+then the following should be considered
+1.The number of elements
+2.The order of elements
+3.The content of elements (case sensitive)
+
+When ever we are using relatational operators(<,<=,>,>=) between List objects,
+only first element comparison will be performed.
+	>>>  x=[50,20,30]
+		 y=[40,50,60,100,200]
+		 print(x>y) True
+		 print(x>=y) True
+		 print(x<y)	False
+		 print(x<=y) False
+ 
+	>>> x=["D","C","R"]
+		y=["R","C","D"]
+		print(x>y) True
+		print(x>=y) True
+		print(x<y)	False
+		print(x<=y) False
+	
+clear() function:
+    We can use clear() function to remove all elements of List. 
+	   n=[10,20,30,40]
+	   print(n)
+	   n.clear()
+	   print(n)
+  
+ 
+Nested Lists:  
+Sometimes we can take one list inside another list. Such type of lists are called nested lists. 
+	 n=[10,20,[30,40]]
+	 print(n)       [10, 20, [30, 40]]
+	 print(n[0])      10
+	 print(n[2])	  [30, 40]
+	 print(n[2][0])   .30
+	 print(n[2][1])	   40
+	 
+We can access nested list elements by using index 
+    just like accessing multi dimensional array elements.
+	
+List Comprehensions:
+It is very easy and compact way of creating list objects 
+  from any iterable objects(like list,tuple,dictionary,range etc)
+      based on some condition
+Syntax:
+list=[expression for item in list if condition]      
+==> for item in sequence it checks condition and returns valid elements from sequence 
+    and for that elements 
+	we will evaluate expression and returns result.
+	
+	s=[ x*x for x in range(1,11)]
+	print(s) #[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+	v=[2**x for x in range(1,6)]
+	print(v)   # [2, 4, 8, 16, 32]
+	m=[x for x in s if x%2==0]
+	print(m)   #[4, 16, 36, 64, 100]
+	
+	first letter
+	words=["Balaiah","Nag","Venkatesh","Chiranjeevi"]
+	l=[w[0] for w in words]
+	print(l)
+	
+ num1=[10,20,30,40]
+ num2=[30,40,50,60]
+ num3=[ i for i in num1 if i not in num2]
+ print(num3) [10,20]
+
+ common elements present in num1 and num2
+ num4=[i for i in num1 if i in num2]
+ print(num4) [30, 40]
+
+==================================================================================================================
+Tuple Data Structure:
+tuple data type is exactly same as list data type 
+   except that it is immutable.i.e we cannot chage values.	
+   
+   Tuple elements can be represented within parenthesis. 
+   Eg:
+     >>>t=(10,20,30,40)
+	 >>>type(t)   #<class 'tuple'>
+	 >>>t[0]=100  #TypeError: 'tuple' object does not support item assignment
+  tuple is the read only version of list 	
+
+We have to take special care about single valued tuple.
+compulsary the value should ends with comma,
+otherwise it is not treated as tuple. 
+	t=(10)
+	print(t)     #10
+	print(type(t))   #<class 'int'>
+	
+	t=(10,)
+	print(t)     #(10,)
+	print(type(t))   #<class 'tuple'>
+	
+	 Which of the following are valid tuples?
+	 t=()
+	 t=10,20,30,40
+	 t=10
+	 t=10,
+	 t=(10)
+	 t=(10,)
+	 t=(10,20,30,40)
+	 
+Tuple creation:
+  1. t=()   creation of empty tuple
+  2. t=(10,)
+     t=10,
+	creation of single valued tuple
+	parenthesis are optional,should ends with comma
+  3.t=10,20,30
+	t=(10,20,30)
+	creation of multi values tuples & parenthesis are optional
+   4. By using tuple() function:
+      list=[10,20,30]
+	  t=tuple(list)
+	  print(t)
+	  
+	  t=tuple(range(10,20,2))
+	  print(t)
+
+	
+	Accessing elements of tuple:
+	We can access either by index or by slice operator 
+	
+	Tuple vs immutability:
+	Once we creates tuple,we cannot change its content. Hence tuple objects are immutable.
+		Eg:
+		t=(10,20,30,40)
+		t[1]=70	TypeError: 'tuple' object does not support item assignment
+
+	Mathematical operators for tuple:
+		We can apply + and * operators for tuple
+	1.Concatenation Operator(+):
+	    t1=(10,20,30)
+		t2=(40,50,60)
+		t3=t1+t2
+		print(t3) # (10,20,30,40,50,60)
+		
+	2.Multiplication operator or repetition operator(*)
+	     t1=(10,20,30)
+		 t2=t1*3
+		 print(t2) #(10,20,30,10,20,30,10,20,30)
+		 
+		 
+	Important functions of Tuple:
+	
+	1.len()-To return number of elements present in the tuple 
+		Eg:
+		t=(10,20,30,40)
+		print(len(t)) #4
+	2.count()
+		To return number of occurrences of given element in the tuple
+		Eg:
+		t=(10,20,10,10,20)
+		print(t.count(10)) #3
+    3.index()
+		returns index of first occurrence of the given element.
+		If the specified element is not available then we will get ValueError
+		Eg:
+		t=(10,20,10,10,20)
+		print(t.index(10)) #0
+		print(t.index(30)) ValueError: tuple.index(x): x not in tuple
+    4.sorted()
+		To sort elements based on default natural sorting order	
+			t=(40,10,30,20)
+			t1=sorted(t)
+			print(t1)  #[10, 20, 30, 40]
+			print(t)	#(40, 10, 30, 20)
+			
+		We can sort according to reverse of default natural sorting order as follows
+		t1=sorted(t,reverse=True) 
+		print(t1)  #[40, 30, 20, 10]
+	5.min() and max() functions:
+	These functions return min and max values 
+	according to default natural sorting order. 
+	  t=(40,10,30,20)
+	  print(min(t)) #10
+	  print(max(t)) #40
+	  
+	6.cmp():
+	It compares the elements of both tuples. 
+	  If both tuples are equal then returns 0
+      If the first tuple is less than second tuple then it returns -1
+      If the first tuple is greater than second tuple then it returns +1 
+			t1=(10,20,30)
+			t2=(40,50,60)
+			t3=(10,20,30)
+			print(cmp(t1,t2)) # -1
+			print(cmp(t1,t3)) # 0
+			print(cmp(t2,t3)) # +1
+			
+	 cmp() function is available only in Python2 but not in Python 3
+
+
+	Tuple Packing and Unpacking:
+    We can create a tuple by packing a group of variables. 	
+	a=10
+	b=20
+	c=30
+	d=40
+	t=a,b,c,d
+	print(t) #(10, 20, 30, 40)
+	Here a,b,c,d are packed into a tuple t. 
+	This is nothing but tuple packing.
+	
+	Tuple unpacking is the reverse process of tuple packing
+    We can unpack a tuple and assign its values to different variables 
+	t=(10,20,30,40)
+	a,b,c,d=t
+	print("a=",a,"b=",b,"c=",c,"d=",d) #a= 10 b= 20 c= 30 d= 40
+	
+	At the time of tuple unpacking 
+	the number of variables and number of values should be same.	
+	,otherwise we will get ValueError.	
+		t=(10,20,30,40)
+		a,b,c=t	#ValueError: too many values to unpack (expected 3)
+	
+		 	
+	Tuple Comprehension:	
+		Tuple Comprehension is not supported by Python. 
+		t= ( x**2  for x in range(1,6))
+		Here we are not getting tuple object and we are getting generator object.
+		  t= ( x**2  for x in range(1,6))
+		  print(type(t))   #<class 'generator'>
+		  for x in t: 
+		    print(x)
+
+
+Differences between List and Tuple:
+List and Tuple are exactly same except small difference: 
+List objects are mutable where as Tuple objects are immutable.
+ i.e. once we creates List Object we can perform any changes in that Object.
+  Eg: i[1] = 70
+whereas once we creates Tuple Object we cannot change its content.
+ t[1] = 70  ValueError: tuple object does not support item assignment.
+ 
+ 
+In both cases insertion order is preserved, 
+	duplicate objects are allowed, 
+	heterogenous objects are allowed, 
+	index and slicing are supported.
+
+	
+List is a Group of Comma separeated Values within Square Brackets and Square Brackets are mandatory.
+Eg: i = [10, 20, 30, 40]
+ Tuple is a Group of Comma separeated Values within Parenthesis and Parenthesis are optional.
+Eg: t = (10, 20, 30, 40)
+t = 10, 20, 30, 40
+
+ If the Content is not fixed and keep on
+changing then we should go for List.
+
+If the content is fixed and never changes
+then we should go for Tuple.
+
+List Objects can not used as Keys for Dictionries
+Tuple Objects can be used as Keys for Dictionries	
+because	Keys should	be Hashable and Immutable.
+
+
+===================================================================================================	
+
+Set	Data Structure
+to represent a group of unique values as a single entity then we should go for set.
+Duplicates are not allowed.
+Insertion order is not preserved.But we can sort the elements
+Indexing and slicing not allowed for the set.
+Heterogeneous elements are allowed.
+Set objects are mutable i.e once we creates set object 
+we can perform any changes in that object based on our requirement.
+We can represent set elements within curly braces and with comma seperation
+We can apply mathematical operations like union,intersection,difference etc on set objects.
+
+Creation of Set objects:
+
+s={10,20,30,40}
+print(s)  #{40, 10, 20, 30}
+print(type(s)) #<class 'set'>
+
+We can create set objects by using set() function
+ s=set(any sequence)
+ 
+  l = [10,20,30,40,10,20,10]
+  s=set(l)
+  print(s) # {40, 10, 20, 30}
+  
+  s=set(range(5))
+  print(s)
+  
+  
+  While creating empty set we have to take special care. 
+  Compulsory we should use set() function.
+  s={} ==>It is treated as dictionary but not empty set.
+      s={}
+	  print(s)  #{}
+	  print(type(s))  #<class 'dict'>
+	  
+	  s=set()
+	  print(s)   #set()
+	  print(type(s)) #<class 'set'>
+	
+Important functions of set:
+1.add(x):Adds item x to the set 
+	s={10,20,30}
+	s.add(40);
+	print(s) #{40, 10, 20, 30}
+ 
+2.update(x,y,z):
+  To add multiple items to the set.
+  Arguments are not individual elements and these are Iterable objects like List,range etc.
+  All elements present in the given Iterable objects will be added to the set.
+
+    s={10,20,30}
+	l=[40,50,60,10]
+	s.update(l,range(5))
+	print(s)    #{0, 1, 2, 3, 4, 40, 10, 50, 20, 60, 30}
+	
+What is the difference between add() and update() functions in set?
+
+We can use add() to add individual item to the Set,
+	where as we can use update() function to add multiple items to Set.
+
+add() function can take only one argument where as 
+	update() function can take any number of arguments 
+	but all arguments should be iterable objects
+
+Which of the following are valid for set s?
+  s=set()
+  s.add(10)
+  s.add(10,20,30)	TypeError: add() takes exactly one argument (3 given)
+  s.update(10)	TypeError: 'int' object is not iterable 
+  s.update(range(1,10,2),range(0,10,2))
+
+
+3.copy():
+Returns copy of the set. 
+It is cloned object.
+	s={10,20,30}
+	s1=s.copy() 
+	print(s1)
+
+4.pop():
+  It removes and returns some random element from the set. 
+	 s={40,10,30,20}
+	 print(s)
+	 print(s.pop())
+	 print(s)
+
+5.remove(x):
+It removes specified element from the set.
+If the specified element not present in the Set then we will get KeyError
+	s={40,10,30,20}
+	s.remove(30)
+	print(s)	# {40, 10, 20}
+	s.remove(50) ==>KeyError: 50
+	
+6.discard(x):
+It removes the specified element from the set.
+If the specified element not present in the set then we won't get any error.
+
+s={10,20,30}
+s.discard(10)
+print(s)	===>{20, 30} s.discard(50)
+print(s)	==>{20, 30}
+
+What is the difference between remove() and discard() functions in Set?
+ Explain differences between pop(),remove() and discard() functionsin Set?
+
+7.clear():
+To remove all elements from the Set.
+  s={10,20,30}
+  print(s)
+  s.clear()
+  print(s)   #set()
+
+
+Mathematical operations on the Set:
+1.union():
+  x.union(y) ==>We can use this function to return all elements present in both sets 
+   x.union(y) or	x|y
+		x={10,20,30,40}
+		y={30,40,50,60}
+		print(x.union(y))	#{10, 20, 30, 40, 50, 60}
+		print(x|y)	#{10, 20, 30, 40, 50, 60}
+2.intersection():
+ x.intersection(y) or x&y
+ Returns common elements present in both x and y 
+	x={10,20,30,40}
+	y={30,40,50,60}
+	print(x.intersection(y))	#{40, 30}
+	print(x&y)	#{40, 30}
+
+3.difference():
+ x.difference(y) or x-y
+ returns the elements present in x but not in y Eg:
+	x={10,20,30,40}
+	y={30,40,50,60}
+	print(x.difference(y)) #{10, 20}
+	print(x-y)	#{10, 20}
+	print(y-x)	#{50, 60}
+
+4.symmetric_difference():
+  x.symmetric_difference(y)	or	x^y
+  Returns elements present in either x or y but not in both Eg:
+	x={10,20,30,40}
+	y={30,40,50,60}
+	print(x.symmetric_difference(y))	#{10, 50, 20, 60}
+	print(x^y)	#{10, 50, 20, 60}
+
+
+Membership operators:	(in , not in)
+	 s=set("star")
+	 print(s)   #{'r', 's', 't', 'a'}
+	 print('d' in s) #True
+	 print('z' in s) #False	
+	 
+Set Comprehension:
+Set comprehension is possible.
+set={expression for item in list if condition} 
+for item in sequence it checks condition and returns valid elements from sequence 
+    and for that elements 
+	we will evaluate expression and returns result.
+	
+s={x*x for x in range(5)}
+print(s) #{0, 1, 4, 9, 16}
+s={2**x for x in range(2,10,2)} 
+print(s)	#{16, 256, 64, 4}
+
+set objects won't support indexing and slicing:
+
+program to eliminate duplicates present in the list
+ l=eval(input("Enter List of values: "))
+ s=set(l)
+ print(s)
+
+to print different vowels present in the given word
+	w=input("Enter word to search for vowels: ")
+	s=set(w)
+	v={'a','e','i','o','u'}
+	d=s.intersection(v)
+	print("The different vowel present in",w,"are",d)
+
+
+==================================================================================================================
+
+Dictionary Data Structure
+We can use List,Tuple and Set to represent a group of individual objects as a single entity.
+If we want to represent a group of objects as key-value pairs then we should go for Dictionary.
+Eg:
+rollno	name
+phone number--address 
+ipaddress	domain name
+
+Duplicate keys are not allowed but values can be duplicated. 
+Hetrogeneous objects are allowed for both key and values. 
+insertion order is not preserved
+Dictionaries are mutable Dictionaries are dynamic
+indexing and slicing concepts are not applicable
+
+In C++ and Java Dictionaries are known as "Map" 
+where as in Perl and Ruby it is known as "Hash"
+
+How to create Dictionary?
+    d={}	or	d=dict()
+ we are creating empty dictionary. We can add entries as follows
+	d[100]="sun" 
+	d[200]="moon" 
+	d[300]="stars"
+	print(d) #{100: 'sun', 200: 'moon', 300: 'stars'}
+	
+If we know data in advance then we can create dictionary as follows 
+	d={100:'sun' ,200:'moon', 300:'stars'}
+	d={key:value, key:value}
+
+How to access data from the dictionary?
+We can access data by using keys.
+	d={100:'sun' ,200:'moon', 300:'stars'}
+	print(d[100])	#sun
+	print(d[300])	#stars
+
+If the specified key is not available then we will get KeyError 
+	print(d[400]) # KeyError: 400
+	
+	
+We can prevent this by checking whether key is already available or not 
+by using has_key() function or by using in operator.
+   d.has_key(400) ==> returns 1 if key is available otherwise returns 0
+
+But has_key() function is available only in Python 2 but not in Python 3.
+ Hence compulsory we have to use in operator.
+		if 400 in d:
+		print(d[400])
+		
+How to update dictionaries?
+d[key]=value
+If the key is not available then 
+	a new entry will be added to the dictionary 
+	with the specified key-value pair
+If the key is already available 
+	then old value will be replaced with new value. 
+	d={100:'sun' ,200:'moon', 300:'stars'}
+	print(d)	
+	d[400]= 'rain'
+	print(d)
+	d[100]= 'shine'
+	print(d)
+
+How to delete elements from dictionary?
+ del d[key]
+    It deletes entry associated with the specified key. 
+	If the key is not available then we will get KeyError
+d={100:'sun' ,200:'moon', 300:'stars'}
+print(d)
+del d[100]
+print(d)
+del d[400]    #KeyError: 400
+
+d.clear()  #{}
+To remove all entries from the dictionary 
+print(d)  #{}
+
+del d
+To delete total dictionary.Now we cannot access d 
+	d={100:'sun' ,200:'moon', 300:'stars'}
+	print(d)
+	del d
+	print(d)    NameError: name 'd' is not defined
+
+
+Important functions of dictionary:
+
+1.dict():
+  To create a dictionary	
+d=dict() ===>It creates empty dictionary
+d=dict({100:'sun' ,200:'moon'}) ==>It creates dictionary with specified elements 
+d=dict([(100,"sun"),(200,"moon"),(300,"stars")])==>It creates dictionary with the given list of tuple elements
+
+2.len()
+Returns the number of items in the dictionary
+
+3.clear():
+To remove all elements from the dictionary
+
+4.get():
+	To get the value associated with the key
+
+	d.get(key)
+	 If the key is available then returns the corresponding value 
+		 otherwise returns None.It wont raise any error.
+
+	d.get(key,defaultvalue)
+	  If the key is available then returns the corresponding value 
+		otherwise returns default value.
+	d={100:'sun' ,200:'moon', 300:'stars'} 
+	print(d[100]) 
+	print(d[400]) ==>KeyError:400 
+	print(d.get(100)) ==sun 
+	print(d.get(400)) ==>None
+	print(d.get(100,"rain")) ==sun 
+	print(d.get(400,"rain")) ==>rain
+3.pop():
+	d.pop(key)
+	It removes the value of the specified key and returns the corresponding value
+	If the specified key is not available then we will get KeyError
+	 d={100:'sun' ,200:'moon', 300:'stars'} 
+	 print(d.pop(100))  #sun
+	 print(d)			#{200:'moon', 300:'stars'}
+	 print(d.pop(400))	#KeyError: 400
+4.popitem():
+	It removes an arbitrary item(key-value) from the dictionaty and returns it.
+	   d={100:'sun' ,200:'moon', 300:'stars'} 
+	   print(d.popitem()) 
+	   print(d)			
+	If the dictionary is empty then we will get KeyError 
+	d={}
+    print(d.popitem()) ==>KeyError: 'popitem(): dictionary is empty'  	
+5.keys():
+	It returns all keys associated with dictionary 
+		d={100:'sun' ,200:'moon', 300:'stars'}
+		print(d.keys())
+		for k in d.keys(): print(k)
+6.values():	
+    It returns all values associated with the dictionary
+	    d={100:'sun' ,200:'moon', 300:'stars'}
+		print(d.values())
+		for v in d.values(): print(v)
+7.items():
+    It returns list of tuples representing key-value pairs. 
+	[(k,v),(k,v),(k,v)]	
+	d={100:'sun' ,200:'moon', 300:'stars'}
+	for k,v in d.items():
+       print(k,"--",v)	
+8.copy():
+To create exactly duplicate dictionary(cloned copy)
+d1=d.copy();
+
+9.setdefault():
+  d.setdefault(k,v)
+If the key is already available then 
+	this function returns the corresponding value.
+If the key is not available then 
+    the specified key-value will be added as new item to the dictionary.
+	d={100:'sun' ,200:'moon', 300:'stars'}
+	print(d.setdefault(400,"rain"))
+	print(d)
+	print(d.setdefault(100,"rain"))
+	print(d)
+10.update():
+ d.update(x)
+ All items present in the dictionary x will be added to dictionary d	
+ 
+============================================================================
+Dictionary Comprehension:
+Comprehension concept applicable for dictionaries also.
+	squares={x:x*x for x in range(1,6)}
+	print(squares)                #{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+	doubles={x:2*x for x in range(1,6)}
+	print(doubles)				#{1: 2, 2: 4, 3: 6, 4: 8, 5: 10}
+	
+	
+	
+	

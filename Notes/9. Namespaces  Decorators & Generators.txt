@@ -1,0 +1,788 @@
+Python Basics & Scripting
+Duration: 15 Days
+
+1. Introduction--------------completed
+2. Python Data Structures----completed
+3. Methods and Functions ----completed
+6. Names space and Scope in Python
+		 Namespaces
+		 Scopes
+		 Coding assignments
+5. Decorators and Generators 
+		 Basics of Decorators
+		 Coding with Decorators
+		 Generators with Python
+		 Coding exercises on generators and decorators
+
+14th june 2021 	
+
+
+Names space and Scope in Python
+
+we will use names in the python
+to identify an object
+thats why they are called as 
+identifiers.
+ names we use in 
+python function name,
+variable name , class name
+method name
+
+Namespace  is basically a system
+ which will control all the names which
+ we use in our program.
+ It will assure that what ever the names
+ we use are unique and it will not lead 
+ to any conflict.
+ 
+a python program contains multiple namespaces
+first one is called as Built-in  namespace
+second one is called global name space
+and the other is local name space.
+
+so when you call a function it will create 
+its own name space that is called as local
+namespace
+
+so when you import or use any module 
+that time it will create its own 
+Global namespace
+so each module has its own name space 
+thats why you can reuse names in different
+modules.
+
+And Built-in is when you start the python interpreter
+built in namespace is created it contains all built-in names.
+
+mport module
+
+module.functionname  
+
+first.py
+
+def function():
+    print("hi")
+
+
+second.py
+
+def function():
+    print("hello")
+
+namespace.py
+
+import first
+import second
+
+first.function()
+second.function()
+
+so names space will take care about names 
+and will allow us to reuse the names
+
+we can use any name in the 
+program 
+but we cant access any name from any part of the
+program
+
+
+for example  
+
+def f1():
+    x = 4
+    print(x)
+
+
+f1()
+print(x)
+ 
+we cant access x outside the function
+it has its own life time and it has its 
+own region where only it is available 
+so this is called as scope
+ie variable scope.
+
+part of the program where variable is accessiable
+is called variable scope
+
+four type of variable scope
+1)local
+2)global
+3)enclosed
+4)Built-in
+LEGB rule
+
+dir()
+to see which names are present in the current scope 
+using dir function which is built-in function
+
+print(dir())
+we can see all the built-in names .
+
+num = 10
+print(dir())
+we can see num also
+
+print(dir())
+num = 20
+
+
+def f1():
+    n = 10
+    print("inside the function:", dir())
+
+
+f1()
+print("outside the function", dir())
+
+
+In python namespaces are implemented as 
+dictionaries
+key value pair
+key----> name
+value ---->object
+name object mapping
+
+
+four type of variable scope
+1)local
+2)global
+3)enclosed
+4)Built-in
+
+1)local 
+contains names defined inside the current
+function
+if we define any variable inside a function
+then the scope of variable is inside function
+when function ends the availability of variable
+ also ends
+
+2)global
+contains names defined at top level(beginning)
+ of script or module and these names are available
+ for the whole script
+ the lifetime of names ends when program ends
+ 
+ 
+whatever the variables we use in local scope
+are local variables and 
+whatever the functions we use in local scope
+are local functions 
+
+whatever the variables we use in global scope
+are global variables and 
+whatever the functions we use in global scope
+are global functions 
+
+3) enclosed
+contains names inside any and all 
+enclosed functions
+so if we take nested function 
+function inside another function
+In that case we can see the 
+enclosed scope
+  
+4)Built-in : built in names
+
+4)Built-in : built in names
+
+
+y = 10
+
+
+def inner():
+    x = 4
+    print(x)
+    print(y)
+
+
+inner()
+# print(x)
+print(y)
+----------------------
+assigning new value for y inside funtion
+y = 10
+
+
+def inner():
+    x = 4
+    y = 5
+    print("x:", x)
+    print("inside fun y :", y)
+
+
+inner()
+# print(x)
+print(y)
+
+--------------------
+changing value for y inside funtion
+
+y = 10
+
+
+def inner():
+    x = 4
+    y = y+1
+    print("x:", x)
+    print("inside fun y :", y)
+
+
+inner()
+# print(x)
+print(y)
+
+UnboundLocalError: local variable 'y' referenced before assignment
+
+
+we cant modify global variable inside local scope
+if you want to do that then we should use 
+keyword global
+It will modify the global variable
+
+y = 10
+
+
+def inner():
+    x = 4
+    global y
+    y = y+1
+    print("x:", x)
+    print("inside fun y :", y)
+
+
+inner()
+# print(x)
+print(y)
+
+-------------------------------------------
+y = 10
+
+
+def outer():
+    z = 4
+
+    def inner():
+        x = 4
+        print("x:", x)
+        print("inside fun y :", y)
+    inner()
+    print(z)
+
+
+outer()
+
+here for inner fuction z is not the local variable 
+as well as it is not the global variable
+so it is called as non local variable 
+also called as enclosing variable
+this is enclosing scope
+
+we cant access z outside the outer()
+but we can access it inside the outer 
+as well as inner function also
+
+y = 10
+
+
+def outer():
+    z = 15
+
+    def inner():
+        x = 4
+        print("x:", x)
+        print("inside fun z :", z)
+    inner()
+    print(z)
+
+
+outer()
+
+
+
+next similar to the global keyword we
+can access non local key word
+to modify the enclosed variable in the
+local scope
+keyword is nonlocal
+
+To modify the enclosed variable in local 
+scope we use nonlocal
+To modify the global variable in local 
+scope we use global keyword
+
+y = 10
+
+
+def outer():
+    z = 15
+
+    def inner():
+        x = 4
+        nonlocal z
+        z = z+1
+        print("x:", x)
+        print("inside fun z :", z)
+    inner()
+    print(z)
+
+
+outer()
+
+
+----------------------------------
+ 
+4)Built-in :In built in scope it contains
+built_in names , so we can access where ever 
+we want.
+so no need to define anything 
+we can directly use that names
+example
+print("hi")
+
+here we didn't define a function called
+print we are directly accessing it
+as they are built in functions
+ 
+--------------------------------------
+But if every scope contains same variable name
+
+x = 5
+
+
+def outer():
+    x = 10
+
+    def inner():
+        x = 15
+        print("x:", x)
+    inner()
+
+
+outer()
+
+
+so how python will search for value 
+how python will get to know which value to print
+this is done by using LEGB Rule
+ie nothing but
+  local--enclosed---global----built-in
+so python will first search in local scope
+if not found it will search in enclosed
+scope and next global and then built in
+
+then also it is not found it will give nameerror
+
+--------------------------------------------
+if global variable and local variable having the same name
+we can access global variable inside the function 
+globals() returns all dictionary items 
+contains all global variables and corresponding values
+
+globals()--- python inbuilt function
+
+x = 5
+
+
+def inner():
+    x = 15
+    print("x:", x)
+    print(globals()['x'])
+
+
+inner()
+
+=============================================================================================
+Decorators and Generators
+
+
+closures:
+
+before we need to know
+1. Nested Function 
+
+def outer():  # enclosing function
+    x = 3
+
+    def inner():  # nested function as it is inside another function 
+        print(x)
+    inner()
+
+
+# inner()
+outer()
+
+2. Functions are objects
+def f():
+    print("hi")
+
+
+f()   # calling function
+print(f)  # function obj reference
+g = f  # aliasing
+g()   # calling with another name
+
+--------
+def outer():
+    x = 3
+
+    def inner():
+        y = 3
+        result = x+y
+        return result
+    # return inner()  # executing func defination
+    return inner     # we are returning inner function 
+	                   reference to a
+
+
+a = outer()
+print(a)
+# print(a.__name__)  # prints which func it points to
+# inner()  # a is nothing but same as inner function 
+              ie a is inner func mane a, 
+			  inner pointing to same function
+# outer()
+print(a())  # that means we executed 
+                inner function body out side its scope
+
+
+we know that we cant call a function outside scope 
+then how we are getting this output
+this technique is called as closure
+
+The technique by which dat get attached 
+to the code is called as closures in python
+
+Function objects that remembers values in the
+enclosing scope even if they are not present in
+memory.
+
+
+criteria needed to create closure in python 
+1. we must have nested function
+2. nested function must refer to the values in enclosing scope
+3. enclosing function must return nested function
+
+
+Advantage of closures in python 
+can avoid global values
+data hiding
+it allows us to implement decorators
+----------------------------------------------------------------
+
+Decorators:
+
+
+Decorator is a function which can take a function 
+	as argument and extend its functionality and
+	returns modified function with extended functionality.
+
+The main objective of decorator functions is 
+we can extend the functionality of existing functions
+ without modifying that function.
+ 
+def wish(name):
+    print("Hello", name, "Good Morning")
+	
+This function can always print same output for any name
+
+Hello rajasree Good Morning
+Hello rakesh Good Morning
+
+But we want to modify this function 
+to provide different message if name is anu.
+We can do this without touching 
+wish() function by using decorator.
+
+
+def decor(func):
+    def inner(name):
+        if name == "Anu":
+            print("Hello Anu Good Evening")
+        else:
+            func(name)
+    return inner
+
+
+@decor
+def wish(name):
+    print("Hello", name, "Good Morning")
+
+
+wish("Rajasree")
+wish("Rakesh")
+wish("Anu")
+
+In the above program whenever we call wish() function
+ automatically decor function will be executed.
+ 
+@decor : python internally able to understand 
+and pass wish as argument for decor function 
+
+
+
+How to call same function with decorator and without decorator:
+We should not use @decor
+Eg 
+
+def decor(func):
+    def inner(name):
+        if name == "Anu":
+            print("Hello Anu Good Evening")
+        else:
+            func(name)
+    return inner
+
+
+def wish(name):
+    print("Hello", name, "Good Morning")
+
+
+decor_function = decor(wish)
+
+wish("Rakesh")
+wish("Anu")
+
+decor_function("Rakesh")
+decor_function("Anu")
+
+
+
+Eg
+
+def smart_division(func):
+    def inner(a, b):
+        print("We are dividing", a, "with", b)
+        if b == 0:
+            print("OOPS...cannot divide")
+            return
+        else:
+            return func(a, b)
+    return inner
+
+
+@smart_division
+def division(a, b):
+    return a/b
+
+
+print(division(20, 2))
+print(division(20, 0))
+
+without decorator we will get Error.
+with decorator we won't get any error.
+
+
+Decorator Chaining
+We can define multiple decorators for the same function 
+and all these decorators will form Decorator Chaining.
+
+Eg:
+
+@decor1
+@decor 
+def num():
+
+For num() function we are applying 2 decorator functions.
+First inner decorator will work and then outer decorator.
+
+num functionality extended by decor1  ====> input to decor1 is num function 
+and decor1 function is extended by decor  ====> input to decor is 0utput of decor1 
+
+
+def decor1(func):
+    def inner():
+        x = func()
+        return x * x
+    return inner
+
+
+def decor(func):
+    def inner():
+        x = func()
+        return 2 * x
+
+    return inner
+
+
+@decor1
+@decor
+def num():
+    return 10
+
+
+print(num())
+
+====================================================
+iterators: every thing we can loop over is can iterables 
+example : list,string, tuple , dictionaries-->iterables
+this iterables will give iterators to us 
+iterator is an object it has only one work to give next element
+present in the iterables
+
+ex:
+list = [1,2,"hello"]
+for i in list:
+   print(i)
+print(iter(list))
+iterator = iter(list)
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+
+once elements are over it will raise stop exception
+
+
+ie for loop will work on iterator protocal
+here list is called iterable this iterable will call
+built-in function iter()
+which will give iterators as output
+and that iterators will give the next value of the list
+or tuples or we can say iterables
+
+
+---------------------------------------------------------------
+Generators
+
+generator function is a function which 
+returns generator- iterator with the help of
+yield keyword.
+
+generator- iterator is nothing but special type of itertor
+ie all generator-iterators but 
+all iterators are not generator-iterators
+
+=> generator function generates iterator
+
+Generator is a function which is responsible
+ to generate a sequence of values.
+ 
+We can write generator functions just like 
+ordinary functions,
+ but it uses yield keyword to return values.
+ 
+
+normal collections values are stored in memory 
+Incase of generators,
+ the values are never gonna store in memory
+ ie never going to create objects at
+ the beginning , based on requirement 
+ at runtime its going to yield values.
+
+ 
+Eg 1 
+
+def mygen():
+    yield 'A'
+    yield 'B'
+    yield 'C'
+
+
+g = mygen()     
+print(type(g))
+print(next(g))
+print(next(g))
+print(next(g))
+print(next(g))
+
+here g is generator object internally it is not 
+going to store any value at runtime when ever we
+ask g to provide nextvalue from yield list in order
+
+if we want values one by one without storing 
+better go for generator concept.
+if we want to store go for datastructure(costly operation)
+
+generator saves time memory and better performance 
+than collections
+
+Eg 2
+
+def countdown(num):
+    print("Start Countdown")
+    while num > 0:
+        yield num
+        num = num-1
+
+
+values = countdown(5)
+for x in values:
+    print(x)
+
+
+Eg 3: To generate first n numbers:
+
+def firstn(num):
+    n = 1
+    while n <= num:
+        yield n
+        n = n+1
+
+
+values = firstn(5)
+for x in values:
+    print(x)
+
+We can convert generator into list as follows: 
+	values=firstn(10)
+	l1=list(values)
+	print(l1)	#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+ Eg 4: To generate Fibonacci Numbers... 
+ The next is the sum of previous 2 numbers 
+ 
+ Eg: 0,1,1,2,3,5,8,13,21,...
+ 
+ def fib():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a+b
+
+
+for f in fib():
+    if f > 100:
+        break
+    print(f)
+	
+Advantages of Generator Functions:
+1.when compared with class level iterators, generators are very easy to use
+2.Improves memory utilization and performance.
+3.Generators are best suitable for reading data from large number of large files
+
+4.Generators work great for web scraping and crawling.
+
+
+========================================
+import random
+import time
+
+names = ["rajasree", "rakesh", "srinivas", "suneeta"]
+subjects = ['Python', 'Java', 'Blockchain']
+
+
+def people_list(num_people):
+    results = []
+    for i in range(num_people):
+        person = {
+            'id': i,
+            'name': random.choice(names),
+            'subject': random.choice(subjects)
+        }
+        results.append(person)
+    return results
+
+
+def people_generator(num_people):
+    for i in range(num_people):
+        person = {
+            'id': i,
+            'name': random.choice(names),
+            'subject': random.choice(subjects)
+        }
+        yield person
+
+==================================================================
+
+	

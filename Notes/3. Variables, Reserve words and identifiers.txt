@@ -1,0 +1,85 @@
+Python Basics & Scripting
+Duration: 15 Days
+
+Day1:
+
+1. Introduction
+ History and Overview   -------------------- Completed
+ Python setup  ----------------------------- Completed
+ Python data types and variables 
+ Operators
+ Expressions
+ Statements and loops
+
+==============================================================================================================================================
+
+Python data types and variables
+ 
+Reserve words(33): words reserved to represent some meaning or functionality are called Reserved words.
+					 33 reserved words available in Python.
+						True,False,None
+						and, or ,not,is
+						if,elif,else
+						while,for,break,continue,return,in,yield
+						try,except,finally,raise,assert
+						import,from,as,class,def,pass,global,nonlocal,lambda,del,with
+					Note: 
+					1.All Reserved words in Python contain only alphabet symbols.
+					2.Except three reserved words True,False,None, all contain only lower case alphabet symbols.
+
+print is a function not reserve word. function and Reserve words are different.
+   
+=================================================================================================================================	
+Values: basic thing in any program . values can be of any types(data types).
+         Integer type (10 22 ..)                  
+		 Floating type (4.5 , 6.12 )
+		 strings ("hello")
+		 etc
+Variables : variables are nothing but name given to  information
+		ex  var=52
+			y=4.6
+			To create a variable and name variable we use assignment operator leftside variablename 
+																			  Rightside values
+Why name variable?		
+		As name indicates its not constant it keeps changing
+		ex x= 10  doesnt mean that it is always 10 it keeps changing
+		   x=x+1 now x becomes 11
+		   
+Why we need to use variable concepts?
+1)easy to understand program
+2)if we want to use large value in program again and again there may be chance of missing digits and you may get wrong output.
+Instead name that value and use again and again so that we can avoid wrong output.
+3)variables are also called name given to the memory location.that means what ever the value used in the program will be saved in memory location.
+   but we dont know in which location it is saved. if we use variable concept it is easy to find location of values.
+
+python has some inbuilt functions also eg : print(), type() ,id().. 
+             a = 10
+			 print(a)
+			 type(a)
+			 id(a)	 address of a      
+==================================================================================================================================		 
+Identifiers: name which can be used for identification is called identifiers.
+             It can be class name or function name or module name or variable name. 
+			 ex : x=10 
+                  def f1():				  			      
+           Rules for identifier:
+            1. The only allowed characters in Python are
+					alphabet(either lower case or upper case)
+					digits(0 to 9)
+					underscore symbol(_)
+		    2.Identifier should not starts with digit
+			3.Identifiers are case sensitive. Of course Python language is case sensitive language.
+			4.We cannot use reserved words/keywords as identifiers
+            5.There is no length limit for Python identifiers. But not recommended to use too lengthy identifiers(redability will be low).
+            6. Identifier can start with underscore.
+                   1.If identifier starts with one underscore_ symbol then it indicates that it is private 	eg _x
+                   2.If identifier starts with (two under score symbols) indicating that strongly private identifier.	eg __x		
+                   3.If the identifier starts and ends with two underscore symbols 
+				     then the identifier is language defined special name,which is also known as magic methods.	eg: __main__, __add__
+					 
+========================================================================================================================================
+
+
+
+
+            					 

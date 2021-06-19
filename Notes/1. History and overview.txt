@@ -1,0 +1,129 @@
+﻿
+Python Basics & Scripting
+Duration: 15 Days
+
+Day1:
+
+1. Introduction
+ History and Overview
+ Python setup
+ Python data types and variables
+ Operators
+ Expressions
+ Statements and loops
+======================================================================================================================
+Introduction
+
+
+Why Python?
+Beginner Friendly Language
+Easy to Understand 
+Eay to mantain
+concise conding and rich in libraries
+
+====================================================================================
+
+History:
+Father of python: Guido Van Rossam 
+                  in 1989 while working at National Research Institute at Netherlands.
+But officially Python was made available to public in 1991. The official Date of Birth for Python is : Feb 20th 1991.
+
+Name Python: from popular TV Show  "Monty Pythons Flying Circus"(broadcasted in BBC from 1969 to 1974) 
+
+Guido developed Python language by taking almost all programming features from different languages
+1.Functional Programming Features from C
+2.Object Oriented Programming Features from C++
+3.Scripting Language Features from Perl and Shell Script
+4.Modular Programming Features from Modula-3
+
+Most of syntax in Python Derived from C and ABC languages. 
+
+===================================================================================================================
+
+Where to use Python?
+1.For developing Desktop Applications
+2.For developing web Applications
+3.For developing database Applications
+4.For Network Programming
+5.For developing games
+6.For Data Analysis Applications
+7.For Machine Learning
+8.For developing Artificial Intelligence Applications
+9.For IOT,GUI'S
+
+limitations
+For mobile based apps python is not recommended
+low performance as it is Interpreted.
+
+===================================================================================================
+companies using python?
+Internally Google and Youtube use Python coding
+NASA and Nework Stock Exchange Applications developed by Python.
+Top Software companies like Google, Microsoft, IBM, Yahoo ,NSE,Facebook ...and soon....
+
+================================================================================================================
+
+Features of Python:
+1.Simple and easy to learn: ---------------------------> easy syntax compared to other languages
+2.Freeware and Open Source:  --------------------------> free and not required to pay for licence ... able to see source code and customize 
+3.High Level Programming language: --------------------> Human Understandable Language
+4.Platform Independent:      --------------------------> like java .. can run this program in any machine(unix machine /windows /linux/macOS etc).
+                                                         WORA===> Write Once and Run Anywhere.
+5.Portability:               --------------------------> like java..moving python from one platform to other very easily with no changes in program
+6.Dynamically Typed:         --------------------------> Type is taken dynamically.
+										 Any variable in c and java should be declared with type(int, string etc) at the beginning only so statically typed progamming language.
+										 In Python , by defauld based on the value automatically type of variable is considered internally so Dynamically Typed programming language.
+7.Both Procedure Oriented and Object Oriented:
+8.Interpreted:                -------------------------> Not required to compile just run . for java we have to first compile and run.
+                                                     Internally python Interpreter will take care of compilation. if compilation fails returns syntax errors.
+													 when we run the code 1st it will check all syntax.
+9.Extensible:               ---------------------------> existing other language code can be used in python. need not rewrite .. Improves performance
+10.Embedded:         ----------------------------------> use python program with any language as plugin
+11.Extensive Library:
+
+
+=======================================================================================================================
+
+Flavors of Python:
+
+1.CPython:
+It is the standard flavor of Python. It can be used to work with C lanugage Applications
+
+2.Jython or JPython:
+It is for Java Applications. It can run on JVM
+
+3.IronPython:
+It is for C# sharp , dot.Net platform
+
+4.PyPy:
+The main advantage of PyPy is High performance will be improved because (JITjust in time) compiler is available inside PVM.
+
+5.RubyPython
+For Ruby Platforms
+
+6.AnacondaPython
+It is specially designed for handling large volume of data processing.
+
+7.Stackless 
+  python for concurrency . parallel things are going to be execued.
+  
+==================================================================================================
+
+Python Versions:
+
+Python 1.0V introduced in Jan 1994 
+Python 2.0V introduced in October 2000 
+Python 3.0V introduced in December 2008
+
+Note: Python 3 won't provide backward compatibility to Python2
+i.e there is no guarantee that Python2 programs will run in Python3.
+
+Current versions Python 3.9.0
+
+============================================================================================
+
+
+
+
+
+

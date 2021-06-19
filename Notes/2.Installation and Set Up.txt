@@ -1,0 +1,101 @@
+
+Python Basics & Scripting
+Duration: 15 Days
+
+Day1:
+
+1. Introduction
+ History and Overview   ---------------------Completed
+ Python setup
+ Python data types and variables
+ Operators
+ Expressions
+ Statements and loops
+
+====================================================================================================================================
+Python Setup
+
+Downloading and Installation:
+
+python.org---> downloads---> All Release---->go for latest version of python ---->go down based on system mac/windowsos 32/64 bit-----> after downloading 
+To install go for downloads  and just double click on it ----> click  Add path option (to run commands like python , java, javac etc from command prompt)--->
+go for install now---> 
+wait for sometime now set up is successful --> go for close.
+Now Python Installed in system to check whether python is working or not
+go to start--->search for python we can see python IDLE --->go for that 
+this is python shell  Type print("Hello") enter you will get output if you get error please check installation process properly.
+
+python provide REPL Tool: Python IDLE
+               Read
+			   Evaluate
+			   Print 
+			   Loop again
+			   
+			   >>> python console
+			   from command prompt type py / python then python shell started
+			    for normal command prompt again we will use exit() function
+				
+
+=====================================================================================================================================
+
+How many ways to Run Python Programs ?
+Three Ways
+1)Python Command Line
+2)Microsoft Command Prompt
+3)Python IDLE
+
+1) To Use python command line just go to start ---> search python ---> we can see python 3.8--> go for that it opens python command line screen
+    three greater symbol and blinking cursor it indicates that we are in intereactive mode means if we write any query here we will get output here itself
+	 
+2) Microsoft Command Prompt:  open--> type python (if path not added we need to add whole path to go to python then only we can use python in command prompt)
+   print("hello")
+   here we write our code in interactive mode
+   another way we can write code in a file and save that with .py extention and execute that file whenever you want ie called as script mode.
+   go to command prompt 
+   click exit()
+   python filename.py 
+   
+3) Search ---> type IDLE--> opens python shell and now we are in interactive mode 
+   so we can type our code in interactive mode 
+   Here also we can type our code in file and we can execte whenever we want .
+   go to file --> new file  or we can press ctrl+N . Here you can type your code. and save this file name.py 
+   now to run this file just go to run and run module and we can see the output in the shell.
+   
+====================================================================================================================================
+  
+for long code python shell or command prompt is not recommended
+python shell has several options compared to normal command prompt .. File, shell, debug, options,window, help etc normal note pad no option to run
+we can use editors or IDEs
+editors ---notepad not recommended as induntation and no syntax highlaters
+           edit plus
+		    Notepad++
+			PythonShell 
+for huge programs INTEGRATED DEVELOPEMENT ENVIRONMENTS(IDE's) are used Auto suggestions will be there.
+                   Pycharm(recommended)
+				   eclipse
+				   spyder ,sublime, vs, 
+				   Jupitor etc
+				
+============================================================================================================================================
+
+Setting up pycharm :
+ pycharm download search --> jet brains.com -->community version download---> download completing
+ double click to install--> next ... next...--->setup successful ...click run check box and Finish
+ Theme set up dark or light
+ New project --->select location --> folder create---> /project name---> slect base interpreter---> create
+ main.py  warning message invalid python interpreter--->
+ appearance change ---> file---> setting---> font size change....
+                                 editor---->general ---> change  font size with mouse wheel we can tick (ctrl +/-)
+								 program ---> run
+								 
+===============================================================================================================================================
+
+
+
+								 
+								 
+ 
+
+
+  
+       
